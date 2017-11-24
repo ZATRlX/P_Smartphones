@@ -31,13 +31,4 @@ D:\DATA\rossetlo\P_GestProj2_Interface\P_GestProj2_Interface\obj\Debug\P_GestPro
 D:\DATA\rossetlo\P_GestProj2_Interface\P_GestProj2_Interface\obj\Debug\P_GestProj2_Interface.csproj.CoreCompileInputs.cache
 D:\DATA\rossetlo\P_GestProj2_Interface\P_GestProj2_Interface\obj\Debug\P_GestProj2_Interface.exe
 D:\DATA\rossetlo\P_GestProj2_Interface\P_GestProj2_Interface\obj\Debug\P_GestProj2_Interface.pdb
-C:\Users\rossetlo\Desktop\P_Smartphones\P_Smartphones\P_GestProj2_Interface\bin\Debug\P_GestProj2_Interface.exe.config
-C:\Users\rossetlo\Desktop\P_Smartphones\P_Smartphones\P_GestProj2_Interface\bin\Debug\P_GestProj2_Interface.exe
-C:\Users\rossetlo\Desktop\P_Smartphones\P_Smartphones\P_GestProj2_Interface\bin\Debug\P_GestProj2_Interface.pdb
-C:\Users\rossetlo\Desktop\P_Smartphones\P_Smartphones\P_GestProj2_Interface\obj\Debug\P_GestProj2_Interface.csprojResolveAssemblyReference.cache
-C:\Users\rossetlo\Desktop\P_Smartphones\P_Smartphones\P_GestProj2_Interface\obj\Debug\P_GestProj2_Interface.Form1.resources
-C:\Users\rossetlo\Desktop\P_Smartphones\P_Smartphones\P_GestProj2_Interface\obj\Debug\P_GestProj2_Interface.Properties.Resources.resources
-C:\Users\rossetlo\Desktop\P_Smartphones\P_Smartphones\P_GestProj2_Interface\obj\Debug\P_GestProj2_Interface.csproj.GenerateResource.Cache
-C:\Users\rossetlo\Desktop\P_Smartphones\P_Smartphones\P_GestProj2_Interface\obj\Debug\P_GestProj2_Interface.csproj.CoreCompileInputs.cache
-C:\Users\rossetlo\Desktop\P_Smartphones\P_Smartphones\P_GestProj2_Interface\obj\Debug\P_GestProj2_Interface.exe
-C:\Users\rossetlo\Desktop\P_Smartphones\P_Smartphones\P_GestProj2_Interface\obj\Debug\P_GestProj2_Interface.pdb
+D:\DATA\rossetlo\P_GestProj2_Interface\P_GestProj2_Interface\obj\Debug\P_GestProj2_Interface.Form2.resources

@@ -251,5 +251,11 @@ namespace P_GestProj2_Interface
             MessageBox.Show(show, "", MessageBoxButtons.OK);
         }
 
+        private void btnRequest_Click(object sender, EventArgs e)
+        {
+            Form2 formPopup = new Form2();
+            formPopup.Show();
+            formPopup.Owner = this;
+        }
     }
 }

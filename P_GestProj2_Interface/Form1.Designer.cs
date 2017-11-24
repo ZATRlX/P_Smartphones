@@ -45,6 +45,7 @@
             this.lblOS = new System.Windows.Forms.Label();
             this.dgvResultatSmartphones = new System.Windows.Forms.DataGridView();
             this.pbTitle = new System.Windows.Forms.PictureBox();
+            this.btnRequest = new System.Windows.Forms.Button();
             this.grpFiltres.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultatSmartphones)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).BeginInit();
@@ -271,6 +272,16 @@
             this.pbTitle.TabIndex = 4;
             this.pbTitle.TabStop = false;
             // 
+            // btnRequest
+            // 
+            this.btnRequest.Location = new System.Drawing.Point(822, 79);
+            this.btnRequest.Name = "btnRequest";
+            this.btnRequest.Size = new System.Drawing.Size(158, 23);
+            this.btnRequest.TabIndex = 5;
+            this.btnRequest.Text = "Requètes spéciales";
+            this.btnRequest.UseVisualStyleBackColor = true;
+            this.btnRequest.Click += new System.EventHandler(this.btnRequest_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -279,6 +290,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1045, 676);
+            this.Controls.Add(this.btnRequest);
             this.Controls.Add(this.pbTitle);
             this.Controls.Add(this.dgvResultatSmartphones);
             this.Controls.Add(this.grpFiltres);
@@ -311,9 +323,10 @@
         private System.Windows.Forms.Label lblCPU;
         private System.Windows.Forms.ComboBox cbDate;
         private System.Windows.Forms.Label lblAnnee;
-        private System.Windows.Forms.DataGridView dgvResultatSmartphones;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pbTitle;
+        private System.Windows.Forms.Button btnRequest;
+        public System.Windows.Forms.DataGridView dgvResultatSmartphones;
     }
 }
 
