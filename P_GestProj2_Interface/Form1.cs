@@ -1,16 +1,32 @@
-﻿using MySql.Data.MySqlClient;
+﻿/*
+Auteur : Loïc Rosset
+Modifications par : Pierric Ripoll, Loïc Rosset, Ricardo Olivera, Grégory Briand
+Description :   Programme permettant de sélectionner des Smarthpones dans une liste de Smartphones (géré en externe dans une base de données)
+                Dans le cadre du Projet GestProj2
+*/
+using MySql.Data.MySqlClient;
 using System;
 using System.Windows.Forms;
 using System.Data;
 
 namespace P_GestProj2_Interface
 {
+    /// <summary>
+    /// Form principale avec le datagridview où tous les smartphones sont affichés,
+    /// et les contrôles de tri et de filtres
+    /// </summary>
     public partial class Form1 : Form
     {
+        //string servant de connection à la base de donnée. Utilisé dans l'objet MySqlConnection.
         static string connectionString = @"server=localhost;userid=root;password=;database=db_smartphones";
+
+        //Objet qui sera utilisé dans les méthodes qui récupèrent des données
         MySqlConnection connection = new MySqlConnection(connectionString);
+
+        //Objet "lecteur" de données 
         MySqlDataReader rdr;
 
+        //Utilisé dans la méthode ChangeFilters
         bool canChange = true;
         const string PIERRIC = "https://github.com/Nyawww";
         const string RICARDO = "https://github.com/ZATRlX";
@@ -19,7 +35,12 @@ namespace P_GestProj2_Interface
         
         DataView dv = new DataView();
 
+
+        //DataView dv = new DataView();
+
+
         Panel p = new Panel();
+
 
         public Form1()
         {
@@ -40,9 +61,11 @@ namespace P_GestProj2_Interface
             llblLoic.Text = LOIC;
             llblGregory.Text = GREGORY;
 
+            //charger dans rdr3 La Requête sql qui est dans le string.
             MySqlDataReader rdr3 = ExecuteQuery(@"SELECT smaMarque, smaModele, smaDate, smaOS, smaConstructeurs, smaTailleEcran, smaAutonomie, smaRAM, proNom FROM t_smartphone INNER JOIN t_processeur ON t_smartphone.Idproc = t_processeur.idProcesseur;");
 
-            int i = 0;
+
+            //créé les colonnes dans le DataGridView, avec leur noms
             dgvResultatSmartphones.Columns.Add("colMarque", "Marque");
             dgvResultatSmartphones.Columns.Add("colModele", "Modele");
             dgvResultatSmartphones.Columns.Add("colDate", "Date de sortie");
@@ -53,11 +76,15 @@ namespace P_GestProj2_Interface
             dgvResultatSmartphones.Columns.Add("colRAM", "RAM");
             dgvResultatSmartphones.Columns.Add("colProcesseur", "Processeur");
 
+            int i = 0;
+
+            //remplis les colonnes avec les valeurs de la base de données
             while (rdr3.Read())
             {
                 dgvResultatSmartphones.Rows.Add();
                 dgvResultatSmartphones[0, i].Value = rdr3.GetString("smaMarque");
                 dgvResultatSmartphones[1, i].Value = rdr3.GetString("smaModele");
+                //fait en sorte de prendre juste le "2016" de "07-05-2016" 
                 dgvResultatSmartphones[2, i].Value = rdr3.GetString("smaDate").Substring(6, 4);
                 dgvResultatSmartphones[3, i].Value = rdr3.GetString("smaOS");
                 dgvResultatSmartphones[4, i].Value = rdr3.GetString("smaConstructeurs");
@@ -124,8 +151,8 @@ namespace P_GestProj2_Interface
             cbDate.Items.Add("2017");
 
 
-
             
+
             p.Controls.Add(cbCPU);
             p.Controls.Add(cbTailleEcran);
             p.Controls.Add(cbRAM);
