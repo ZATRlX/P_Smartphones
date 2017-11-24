@@ -264,10 +264,12 @@
             // pbTitle
             // 
             this.pbTitle.BackColor = System.Drawing.Color.Transparent;
+            this.pbTitle.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pbTitle.Image = ((System.Drawing.Image)(resources.GetObject("pbTitle.Image")));
             this.pbTitle.Location = new System.Drawing.Point(253, 2);
             this.pbTitle.Name = "pbTitle";
             this.pbTitle.Size = new System.Drawing.Size(553, 100);
+            this.pbTitle.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbTitle.TabIndex = 4;
             this.pbTitle.TabStop = false;
             // 
