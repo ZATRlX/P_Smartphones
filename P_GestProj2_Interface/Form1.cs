@@ -12,10 +12,10 @@ namespace P_GestProj2_Interface
         MySqlDataReader rdr;
 
         bool canChange = true;
-        const string PIERRIC = "Pierric Ripoll : https://github.com/Nyawww";
-        const string RICARDO = "Ricardo Cardoso Oliveira : https://github.com/ZATRlX";
-        const string LOIC = "Loïc Rosset : https://github.com/loicrx9";
-        const string GREGORY = "Grégory Briand : https://github.com/Imacutekayx";
+        const string PIERRIC = "https://github.com/Nyawww";
+        const string RICARDO = "https://github.com/ZATRlX";
+        const string LOIC = "https://github.com/loicrx9";
+        const string GREGORY = "https://github.com/Imacutekayx";
         
         DataView dv = new DataView();
 
@@ -24,6 +24,21 @@ namespace P_GestProj2_Interface
         public Form1()
         {
             InitializeComponent();
+
+            pnlContact.Controls.Add(btnStopContact);
+            pnlContact.Controls.Add(lblPierric);
+            pnlContact.Controls.Add(llblPierric);
+            pnlContact.Controls.Add(lblRicardo);
+            pnlContact.Controls.Add(llblRicardo);
+            pnlContact.Controls.Add(lblLoic);
+            pnlContact.Controls.Add(llblLoic);
+            pnlContact.Controls.Add(lblGregory);
+            pnlContact.Controls.Add(llblGregory);
+
+            llblPierric.Text = PIERRIC;
+            llblRicardo.Text = RICARDO;
+            llblLoic.Text = LOIC;
+            llblGregory.Text = GREGORY;
 
             MySqlDataReader rdr3 = ExecuteQuery(@"SELECT smaMarque, smaModele, smaDate, smaOS, smaConstructeurs, smaTailleEcran, smaAutonomie, smaRAM, proNom FROM t_smartphone INNER JOIN t_processeur ON t_smartphone.Idproc = t_processeur.idProcesseur;");
 
@@ -256,7 +271,14 @@ namespace P_GestProj2_Interface
 
         private void BtnContact_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(PIERRIC + "\n" + RICARDO + "\n" + LOIC + "\n" + GREGORY, "", MessageBoxButtons.OK);
+            pnlContact.Enabled = true;
+            pnlContact.Visible = true;
+        }
+
+        private void btnStopContact_Click(object sender, EventArgs e)
+        {
+            pnlContact.Enabled = false;
+            pnlContact.Visible = false;
         }
     }
 }

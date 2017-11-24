@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.grpFiltres = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -46,9 +46,20 @@
             this.dgvResultatSmartphones = new System.Windows.Forms.DataGridView();
             this.pbTitle = new System.Windows.Forms.PictureBox();
             this.btnContact = new System.Windows.Forms.Button();
+            this.pnlContact = new System.Windows.Forms.Panel();
+            this.llblPierric = new System.Windows.Forms.LinkLabel();
+            this.llblGregory = new System.Windows.Forms.LinkLabel();
+            this.llblLoic = new System.Windows.Forms.LinkLabel();
+            this.llblRicardo = new System.Windows.Forms.LinkLabel();
+            this.lblPierric = new System.Windows.Forms.Label();
+            this.lblGregory = new System.Windows.Forms.Label();
+            this.lblLoic = new System.Windows.Forms.Label();
+            this.lblRicardo = new System.Windows.Forms.Label();
+            this.btnStopContact = new System.Windows.Forms.Button();
             this.grpFiltres.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultatSmartphones)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).BeginInit();
+            this.pnlContact.SuspendLayout();
             this.SuspendLayout();
             // 
             // grpFiltres
@@ -241,14 +252,14 @@
             this.dgvResultatSmartphones.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgvResultatSmartphones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvResultatSmartphones.Cursor = System.Windows.Forms.Cursors.Default;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.ScrollBar;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvResultatSmartphones.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.ScrollBar;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvResultatSmartphones.DefaultCellStyle = dataGridViewCellStyle7;
             this.dgvResultatSmartphones.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnF2;
             this.dgvResultatSmartphones.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.dgvResultatSmartphones.Location = new System.Drawing.Point(60, 276);
@@ -284,6 +295,114 @@
             this.btnContact.UseVisualStyleBackColor = true;
             this.btnContact.Click += new System.EventHandler(this.BtnContact_Click);
             // 
+            // pnlContact
+            // 
+            this.pnlContact.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnlContact.Controls.Add(this.btnStopContact);
+            this.pnlContact.Controls.Add(this.lblRicardo);
+            this.pnlContact.Controls.Add(this.lblLoic);
+            this.pnlContact.Controls.Add(this.lblGregory);
+            this.pnlContact.Controls.Add(this.lblPierric);
+            this.pnlContact.Controls.Add(this.llblRicardo);
+            this.pnlContact.Controls.Add(this.llblLoic);
+            this.pnlContact.Controls.Add(this.llblGregory);
+            this.pnlContact.Controls.Add(this.llblPierric);
+            this.pnlContact.Enabled = false;
+            this.pnlContact.Location = new System.Drawing.Point(2, 2);
+            this.pnlContact.Name = "pnlContact";
+            this.pnlContact.Size = new System.Drawing.Size(245, 77);
+            this.pnlContact.TabIndex = 6;
+            this.pnlContact.Visible = false;
+            // 
+            // llblPierric
+            // 
+            this.llblPierric.AutoSize = true;
+            this.llblPierric.Location = new System.Drawing.Point(101, 10);
+            this.llblPierric.Name = "llblPierric";
+            this.llblPierric.Size = new System.Drawing.Size(48, 13);
+            this.llblPierric.TabIndex = 0;
+            this.llblPierric.TabStop = true;
+            this.llblPierric.Text = "llblPierric";
+            // 
+            // llblGregory
+            // 
+            this.llblGregory.AutoSize = true;
+            this.llblGregory.Location = new System.Drawing.Point(101, 49);
+            this.llblGregory.Name = "llblGregory";
+            this.llblGregory.Size = new System.Drawing.Size(56, 13);
+            this.llblGregory.TabIndex = 1;
+            this.llblGregory.TabStop = true;
+            this.llblGregory.Text = "llblGregory";
+            // 
+            // llblLoic
+            // 
+            this.llblLoic.AutoSize = true;
+            this.llblLoic.Location = new System.Drawing.Point(101, 36);
+            this.llblLoic.Name = "llblLoic";
+            this.llblLoic.Size = new System.Drawing.Size(39, 13);
+            this.llblLoic.TabIndex = 2;
+            this.llblLoic.TabStop = true;
+            this.llblLoic.Text = "llblLoic";
+            // 
+            // llblRicardo
+            // 
+            this.llblRicardo.AutoSize = true;
+            this.llblRicardo.Location = new System.Drawing.Point(101, 23);
+            this.llblRicardo.Name = "llblRicardo";
+            this.llblRicardo.Size = new System.Drawing.Size(56, 13);
+            this.llblRicardo.TabIndex = 3;
+            this.llblRicardo.TabStop = true;
+            this.llblRicardo.Text = "llblRicardo";
+            // 
+            // lblPierric
+            // 
+            this.lblPierric.AutoSize = true;
+            this.lblPierric.Location = new System.Drawing.Point(3, 10);
+            this.lblPierric.Name = "lblPierric";
+            this.lblPierric.Size = new System.Drawing.Size(71, 13);
+            this.lblPierric.TabIndex = 4;
+            this.lblPierric.Text = "Pierric Ripoll :";
+            // 
+            // lblGregory
+            // 
+            this.lblGregory.AutoSize = true;
+            this.lblGregory.Location = new System.Drawing.Point(3, 49);
+            this.lblGregory.Name = "lblGregory";
+            this.lblGregory.Size = new System.Drawing.Size(83, 13);
+            this.lblGregory.TabIndex = 5;
+            this.lblGregory.Text = "Grégory Briand :";
+            // 
+            // lblLoic
+            // 
+            this.lblLoic.AutoSize = true;
+            this.lblLoic.Location = new System.Drawing.Point(3, 36);
+            this.lblLoic.Name = "lblLoic";
+            this.lblLoic.Size = new System.Drawing.Size(71, 13);
+            this.lblLoic.TabIndex = 6;
+            this.lblLoic.Text = "Loïc Rosset :";
+            // 
+            // lblRicardo
+            // 
+            this.lblRicardo.AutoSize = true;
+            this.lblRicardo.Location = new System.Drawing.Point(3, 23);
+            this.lblRicardo.Name = "lblRicardo";
+            this.lblRicardo.Size = new System.Drawing.Size(92, 13);
+            this.lblRicardo.TabIndex = 7;
+            this.lblRicardo.Text = "Ricardo Cardoso :";
+            // 
+            // btnStopContact
+            // 
+            this.btnStopContact.BackColor = System.Drawing.Color.Transparent;
+            this.btnStopContact.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnStopContact.BackgroundImage")));
+            this.btnStopContact.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnStopContact.ForeColor = System.Drawing.Color.Transparent;
+            this.btnStopContact.Location = new System.Drawing.Point(219, 3);
+            this.btnStopContact.Name = "btnStopContact";
+            this.btnStopContact.Size = new System.Drawing.Size(19, 17);
+            this.btnStopContact.TabIndex = 7;
+            this.btnStopContact.UseVisualStyleBackColor = false;
+            this.btnStopContact.Click += new System.EventHandler(this.btnStopContact_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -292,6 +411,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1045, 676);
+            this.Controls.Add(this.pnlContact);
             this.Controls.Add(this.btnContact);
             this.Controls.Add(this.pbTitle);
             this.Controls.Add(this.dgvResultatSmartphones);
@@ -307,6 +427,8 @@
             this.grpFiltres.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultatSmartphones)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).EndInit();
+            this.pnlContact.ResumeLayout(false);
+            this.pnlContact.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -329,6 +451,16 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pbTitle;
         private System.Windows.Forms.Button btnContact;
+        private System.Windows.Forms.Panel pnlContact;
+        private System.Windows.Forms.Button btnStopContact;
+        private System.Windows.Forms.Label lblRicardo;
+        private System.Windows.Forms.Label lblLoic;
+        private System.Windows.Forms.Label lblGregory;
+        private System.Windows.Forms.Label lblPierric;
+        private System.Windows.Forms.LinkLabel llblRicardo;
+        private System.Windows.Forms.LinkLabel llblLoic;
+        private System.Windows.Forms.LinkLabel llblGregory;
+        private System.Windows.Forms.LinkLabel llblPierric;
     }
 }
 
