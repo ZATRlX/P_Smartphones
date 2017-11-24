@@ -12,7 +12,11 @@ namespace P_GestProj2_Interface
         MySqlDataReader rdr;
 
         bool canChange = true;
-
+        const string PIERRIC = "Pierric Ripoll : https://github.com/Nyawww";
+        const string RICARDO = "Ricardo Cardoso Oliveira : https://github.com/ZATRlX";
+        const string LOIC = "Loïc Rosset : https://github.com/loicrx9";
+        const string GREGORY = "Grégory Briand : https://github.com/Imacutekayx";
+        
         DataView dv = new DataView();
 
         Panel p = new Panel();
@@ -122,7 +126,7 @@ namespace P_GestProj2_Interface
             p.Location = new System.Drawing.Point(10, 14);
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
 
 
@@ -229,13 +233,12 @@ namespace P_GestProj2_Interface
             connection.Close();
         }
 
-        private void dgvResultatSmartphones_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void DgvResultatSmartphones_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             MySqlDataReader rdr4 = ExecuteQuery(@"SELECT smaMarque, smaModele, smaDate, smaOS, smaConstructeurs, smaTailleEcran, smaAutonomie, smaRAM, proNom FROM t_smartphone INNER JOIN t_processeur ON t_smartphone.Idproc = t_processeur.idProcesseur;");
 
             int j = dgvResultatSmartphones.CurrentRow.Index;
-
-            int i = 0;
+            
             while (rdr4.Read()) ;
             string show = String.Format("***{0} {1}***\n\nDate de sortie : {2}\nOS : {3}\nConstructeur : {4}\nTaille d'écran : {5} pouces\nAutonomie : {6} heures\nRAM : {7} Go\nProcesseur : {8}",
                 dgvResultatSmartphones[0, j].Value, dgvResultatSmartphones[1, j].Value, dgvResultatSmartphones[2, j].Value, dgvResultatSmartphones[3, j].Value, dgvResultatSmartphones[4, j].Value,
@@ -251,5 +254,9 @@ namespace P_GestProj2_Interface
             MessageBox.Show(show, "", MessageBoxButtons.OK);
         }
 
+        private void BtnContact_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(PIERRIC + "\n" + RICARDO + "\n" + LOIC + "\n" + GREGORY, "", MessageBoxButtons.OK);
+        }
     }
 }

@@ -41,3 +41,12 @@ C:\Users\rossetlo\Desktop\P_Smartphones\P_Smartphones\P_GestProj2_Interface\obj\
 C:\Users\rossetlo\Desktop\P_Smartphones\P_Smartphones\P_GestProj2_Interface\obj\Debug\P_GestProj2_Interface.csproj.CoreCompileInputs.cache
 C:\Users\rossetlo\Desktop\P_Smartphones\P_Smartphones\P_GestProj2_Interface\obj\Debug\P_GestProj2_Interface.exe
 C:\Users\rossetlo\Desktop\P_Smartphones\P_Smartphones\P_GestProj2_Interface\obj\Debug\P_GestProj2_Interface.pdb
+C:\Users\briandgr\Desktop\P_Smartphones\P_GestProj2_Interface\bin\Debug\P_GestProj2_Interface.exe.config
+C:\Users\briandgr\Desktop\P_Smartphones\P_GestProj2_Interface\bin\Debug\P_GestProj2_Interface.exe
+C:\Users\briandgr\Desktop\P_Smartphones\P_GestProj2_Interface\bin\Debug\P_GestProj2_Interface.pdb
+C:\Users\briandgr\Desktop\P_Smartphones\P_GestProj2_Interface\obj\Debug\P_GestProj2_Interface.csprojResolveAssemblyReference.cache
+C:\Users\briandgr\Desktop\P_Smartphones\P_GestProj2_Interface\obj\Debug\P_GestProj2_Interface.Form1.resources
+C:\Users\briandgr\Desktop\P_Smartphones\P_GestProj2_Interface\obj\Debug\P_GestProj2_Interface.Properties.Resources.resources
+C:\Users\briandgr\Desktop\P_Smartphones\P_GestProj2_Interface\obj\Debug\P_GestProj2_Interface.csproj.GenerateResource.Cache
+C:\Users\briandgr\Desktop\P_Smartphones\P_GestProj2_Interface\obj\Debug\P_GestProj2_Interface.exe
+C:\Users\briandgr\Desktop\P_Smartphones\P_GestProj2_Interface\obj\Debug\P_GestProj2_Interface.pdb

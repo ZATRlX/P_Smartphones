@@ -45,6 +45,7 @@
             this.lblOS = new System.Windows.Forms.Label();
             this.dgvResultatSmartphones = new System.Windows.Forms.DataGridView();
             this.pbTitle = new System.Windows.Forms.PictureBox();
+            this.btnContact = new System.Windows.Forms.Button();
             this.grpFiltres.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultatSmartphones)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).BeginInit();
@@ -259,7 +260,7 @@
             this.dgvResultatSmartphones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dgvResultatSmartphones.Size = new System.Drawing.Size(920, 369);
             this.dgvResultatSmartphones.TabIndex = 3;
-            this.dgvResultatSmartphones.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvResultatSmartphones_CellClick);
+            this.dgvResultatSmartphones.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvResultatSmartphones_CellClick);
             // 
             // pbTitle
             // 
@@ -273,6 +274,16 @@
             this.pbTitle.TabIndex = 4;
             this.pbTitle.TabStop = false;
             // 
+            // btnContact
+            // 
+            this.btnContact.Location = new System.Drawing.Point(13, 13);
+            this.btnContact.Name = "btnContact";
+            this.btnContact.Size = new System.Drawing.Size(75, 23);
+            this.btnContact.TabIndex = 5;
+            this.btnContact.Text = "Contact";
+            this.btnContact.UseVisualStyleBackColor = true;
+            this.btnContact.Click += new System.EventHandler(this.BtnContact_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -281,6 +292,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1045, 676);
+            this.Controls.Add(this.btnContact);
             this.Controls.Add(this.pbTitle);
             this.Controls.Add(this.dgvResultatSmartphones);
             this.Controls.Add(this.grpFiltres);
@@ -316,6 +328,7 @@
         private System.Windows.Forms.DataGridView dgvResultatSmartphones;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pbTitle;
+        private System.Windows.Forms.Button btnContact;
     }
 }
 
