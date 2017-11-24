@@ -43,7 +43,7 @@ namespace P_GestProj2_Interface
                 dgvResultatSmartphones[3, i].Value = rdr3.GetString("smaOS");
                 dgvResultatSmartphones[4, i].Value = rdr3.GetString("smaConstructeurs");
                 dgvResultatSmartphones[5, i].Value = rdr3.GetString("smaTailleEcran");
-                dgvResultatSmartphones[6, i].Value = rdr3.GetString("smaAutonomie");
+                dgvResultatSmartphones[6, i].Value = String.Format("{0:00}",Convert.ToInt32(rdr3.GetString("smaAutonomie")));
                 dgvResultatSmartphones[7, i].Value = rdr3.GetString("smaRAM");
                 dgvResultatSmartphones[8, i].Value = rdr3.GetString("proNom");
                 i++;
