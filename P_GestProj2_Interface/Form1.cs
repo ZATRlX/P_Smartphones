@@ -275,6 +275,26 @@ namespace P_GestProj2_Interface
             pnlContact.Visible = true;
         }
 
+        private void Pierric_Click(object sender, System.Windows.Forms.LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start(PIERRIC);
+        }
+
+        private void Ricardo_Click(object sender, System.Windows.Forms.LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start(RICARDO);
+        }
+
+        private void Loic_Click(object sender, System.Windows.Forms.LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start(LOIC);
+        }
+
+        private void Gregory_Click(object sender, System.Windows.Forms.LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start(GREGORY);
+        }
+
         private void btnStopContact_Click(object sender, EventArgs e)
         {
             pnlContact.Enabled = false;

@@ -323,6 +323,7 @@
             this.llblPierric.TabIndex = 0;
             this.llblPierric.TabStop = true;
             this.llblPierric.Text = "llblPierric";
+            this.llblPierric.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Pierric_Click);
             // 
             // llblGregory
             // 
@@ -333,6 +334,7 @@
             this.llblGregory.TabIndex = 1;
             this.llblGregory.TabStop = true;
             this.llblGregory.Text = "llblGregory";
+            this.llblGregory.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Gregory_Click);
             // 
             // llblLoic
             // 
@@ -343,6 +345,7 @@
             this.llblLoic.TabIndex = 2;
             this.llblLoic.TabStop = true;
             this.llblLoic.Text = "llblLoic";
+            this.llblLoic.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Loic_Click);
             // 
             // llblRicardo
             // 
@@ -353,6 +356,7 @@
             this.llblRicardo.TabIndex = 3;
             this.llblRicardo.TabStop = true;
             this.llblRicardo.Text = "llblRicardo";
+            this.llblRicardo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Ricardo_Click);
             // 
             // lblPierric
             // 
