@@ -34,12 +34,12 @@ namespace P_GestProj2_Interface
         const string RICARDO = "Ricardo Cardoso Oliveira : https://github.com/ZATRlX";
         const string LOIC = "Loïc Rosset : https://github.com/loicrx9";
         const string GREGORY = "Grégory Briand : https://github.com/Imacutekayx";
-        
+
 
         //DataView dv = new DataView();
 
 
-        //Panel p = new Panel();
+        Panel p = new Panel();
 
 
         public Form1()
@@ -136,8 +136,8 @@ namespace P_GestProj2_Interface
             cbDate.Items.Add("2017");
 
 
-
             
+
             p.Controls.Add(cbCPU);
             p.Controls.Add(cbTailleEcran);
             p.Controls.Add(cbRAM);
