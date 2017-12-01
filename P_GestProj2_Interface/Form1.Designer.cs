@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.grpFiltres = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -47,15 +47,15 @@
             this.pbTitle = new System.Windows.Forms.PictureBox();
             this.btnContact = new System.Windows.Forms.Button();
             this.pnlContact = new System.Windows.Forms.Panel();
-            this.llblPierric = new System.Windows.Forms.LinkLabel();
-            this.llblGregory = new System.Windows.Forms.LinkLabel();
-            this.llblLoic = new System.Windows.Forms.LinkLabel();
-            this.llblRicardo = new System.Windows.Forms.LinkLabel();
-            this.lblPierric = new System.Windows.Forms.Label();
-            this.lblGregory = new System.Windows.Forms.Label();
-            this.lblLoic = new System.Windows.Forms.Label();
-            this.lblRicardo = new System.Windows.Forms.Label();
             this.btnStopContact = new System.Windows.Forms.Button();
+            this.lblRicardo = new System.Windows.Forms.Label();
+            this.lblLoic = new System.Windows.Forms.Label();
+            this.lblGregory = new System.Windows.Forms.Label();
+            this.lblPierric = new System.Windows.Forms.Label();
+            this.llblRicardo = new System.Windows.Forms.LinkLabel();
+            this.llblLoic = new System.Windows.Forms.LinkLabel();
+            this.llblGregory = new System.Windows.Forms.LinkLabel();
+            this.llblPierric = new System.Windows.Forms.LinkLabel();
             this.grpFiltres.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultatSmartphones)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).BeginInit();
@@ -252,14 +252,14 @@
             this.dgvResultatSmartphones.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgvResultatSmartphones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvResultatSmartphones.Cursor = System.Windows.Forms.Cursors.Default;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.ScrollBar;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvResultatSmartphones.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.ScrollBar;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvResultatSmartphones.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgvResultatSmartphones.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnF2;
             this.dgvResultatSmartphones.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.dgvResultatSmartphones.Location = new System.Drawing.Point(60, 276);
@@ -314,38 +314,54 @@
             this.pnlContact.TabIndex = 6;
             this.pnlContact.Visible = false;
             // 
-            // llblPierric
+            // btnStopContact
             // 
-            this.llblPierric.AutoSize = true;
-            this.llblPierric.Location = new System.Drawing.Point(101, 10);
-            this.llblPierric.Name = "llblPierric";
-            this.llblPierric.Size = new System.Drawing.Size(48, 13);
-            this.llblPierric.TabIndex = 0;
-            this.llblPierric.TabStop = true;
-            this.llblPierric.Text = "llblPierric";
-            this.llblPierric.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Pierric_Click);
+            this.btnStopContact.BackColor = System.Drawing.Color.Transparent;
+            this.btnStopContact.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnStopContact.BackgroundImage")));
+            this.btnStopContact.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnStopContact.ForeColor = System.Drawing.Color.Transparent;
+            this.btnStopContact.Location = new System.Drawing.Point(219, 3);
+            this.btnStopContact.Name = "btnStopContact";
+            this.btnStopContact.Size = new System.Drawing.Size(19, 17);
+            this.btnStopContact.TabIndex = 7;
+            this.btnStopContact.UseVisualStyleBackColor = false;
+            this.btnStopContact.Click += new System.EventHandler(this.BtnStopContact_Click);
             // 
-            // llblGregory
+            // lblRicardo
             // 
-            this.llblGregory.AutoSize = true;
-            this.llblGregory.Location = new System.Drawing.Point(101, 49);
-            this.llblGregory.Name = "llblGregory";
-            this.llblGregory.Size = new System.Drawing.Size(56, 13);
-            this.llblGregory.TabIndex = 1;
-            this.llblGregory.TabStop = true;
-            this.llblGregory.Text = "llblGregory";
-            this.llblGregory.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Gregory_Click);
+            this.lblRicardo.AutoSize = true;
+            this.lblRicardo.Location = new System.Drawing.Point(3, 23);
+            this.lblRicardo.Name = "lblRicardo";
+            this.lblRicardo.Size = new System.Drawing.Size(92, 13);
+            this.lblRicardo.TabIndex = 7;
+            this.lblRicardo.Text = "Ricardo Cardoso :";
             // 
-            // llblLoic
+            // lblLoic
             // 
-            this.llblLoic.AutoSize = true;
-            this.llblLoic.Location = new System.Drawing.Point(101, 36);
-            this.llblLoic.Name = "llblLoic";
-            this.llblLoic.Size = new System.Drawing.Size(39, 13);
-            this.llblLoic.TabIndex = 2;
-            this.llblLoic.TabStop = true;
-            this.llblLoic.Text = "llblLoic";
-            this.llblLoic.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Loic_Click);
+            this.lblLoic.AutoSize = true;
+            this.lblLoic.Location = new System.Drawing.Point(3, 36);
+            this.lblLoic.Name = "lblLoic";
+            this.lblLoic.Size = new System.Drawing.Size(71, 13);
+            this.lblLoic.TabIndex = 6;
+            this.lblLoic.Text = "Loïc Rosset :";
+            // 
+            // lblGregory
+            // 
+            this.lblGregory.AutoSize = true;
+            this.lblGregory.Location = new System.Drawing.Point(3, 49);
+            this.lblGregory.Name = "lblGregory";
+            this.lblGregory.Size = new System.Drawing.Size(83, 13);
+            this.lblGregory.TabIndex = 5;
+            this.lblGregory.Text = "Grégory Briand :";
+            // 
+            // lblPierric
+            // 
+            this.lblPierric.AutoSize = true;
+            this.lblPierric.Location = new System.Drawing.Point(3, 10);
+            this.lblPierric.Name = "lblPierric";
+            this.lblPierric.Size = new System.Drawing.Size(71, 13);
+            this.lblPierric.TabIndex = 4;
+            this.lblPierric.Text = "Pierric Ripoll :";
             // 
             // llblRicardo
             // 
@@ -358,60 +374,43 @@
             this.llblRicardo.Text = "llblRicardo";
             this.llblRicardo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Ricardo_Click);
             // 
-            // lblPierric
+            // llblLoic
             // 
-            this.lblPierric.AutoSize = true;
-            this.lblPierric.Location = new System.Drawing.Point(3, 10);
-            this.lblPierric.Name = "lblPierric";
-            this.lblPierric.Size = new System.Drawing.Size(71, 13);
-            this.lblPierric.TabIndex = 4;
-            this.lblPierric.Text = "Pierric Ripoll :";
+            this.llblLoic.AutoSize = true;
+            this.llblLoic.Location = new System.Drawing.Point(101, 36);
+            this.llblLoic.Name = "llblLoic";
+            this.llblLoic.Size = new System.Drawing.Size(39, 13);
+            this.llblLoic.TabIndex = 2;
+            this.llblLoic.TabStop = true;
+            this.llblLoic.Text = "llblLoic";
+            this.llblLoic.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Loic_Click);
             // 
-            // lblGregory
+            // llblGregory
             // 
-            this.lblGregory.AutoSize = true;
-            this.lblGregory.Location = new System.Drawing.Point(3, 49);
-            this.lblGregory.Name = "lblGregory";
-            this.lblGregory.Size = new System.Drawing.Size(83, 13);
-            this.lblGregory.TabIndex = 5;
-            this.lblGregory.Text = "Grégory Briand :";
+            this.llblGregory.AutoSize = true;
+            this.llblGregory.Location = new System.Drawing.Point(101, 49);
+            this.llblGregory.Name = "llblGregory";
+            this.llblGregory.Size = new System.Drawing.Size(56, 13);
+            this.llblGregory.TabIndex = 1;
+            this.llblGregory.TabStop = true;
+            this.llblGregory.Text = "llblGregory";
+            this.llblGregory.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Gregory_Click);
             // 
-            // lblLoic
+            // llblPierric
             // 
-            this.lblLoic.AutoSize = true;
-            this.lblLoic.Location = new System.Drawing.Point(3, 36);
-            this.lblLoic.Name = "lblLoic";
-            this.lblLoic.Size = new System.Drawing.Size(71, 13);
-            this.lblLoic.TabIndex = 6;
-            this.lblLoic.Text = "Loïc Rosset :";
-            // 
-            // lblRicardo
-            // 
-            this.lblRicardo.AutoSize = true;
-            this.lblRicardo.Location = new System.Drawing.Point(3, 23);
-            this.lblRicardo.Name = "lblRicardo";
-            this.lblRicardo.Size = new System.Drawing.Size(92, 13);
-            this.lblRicardo.TabIndex = 7;
-            this.lblRicardo.Text = "Ricardo Cardoso :";
-            // 
-            // btnStopContact
-            // 
-            this.btnStopContact.BackColor = System.Drawing.Color.Transparent;
-            this.btnStopContact.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnStopContact.BackgroundImage")));
-            this.btnStopContact.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnStopContact.ForeColor = System.Drawing.Color.Transparent;
-            this.btnStopContact.Location = new System.Drawing.Point(219, 3);
-            this.btnStopContact.Name = "btnStopContact";
-            this.btnStopContact.Size = new System.Drawing.Size(19, 17);
-            this.btnStopContact.TabIndex = 7;
-            this.btnStopContact.UseVisualStyleBackColor = false;
-            this.btnStopContact.Click += new System.EventHandler(this.btnStopContact_Click);
+            this.llblPierric.AutoSize = true;
+            this.llblPierric.Location = new System.Drawing.Point(101, 10);
+            this.llblPierric.Name = "llblPierric";
+            this.llblPierric.Size = new System.Drawing.Size(48, 13);
+            this.llblPierric.TabIndex = 0;
+            this.llblPierric.TabStop = true;
+            this.llblPierric.Text = "llblPierric";
+            this.llblPierric.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Pierric_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSize = true;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1045, 676);

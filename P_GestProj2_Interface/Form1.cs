@@ -28,8 +28,6 @@ namespace P_GestProj2_Interface
 
         //Utilisé dans la méthode ChangeFilters
         bool canChange = true;
-        string DateName = "Date de sortie";
-        string Screen = "Taille Ecran";
 
         //constantes des liens Github des membres de l'équipe utilisés dans la fonction Contact
         const string PIERRIC = "https://github.com/Nyawww";
@@ -196,11 +194,12 @@ namespace P_GestProj2_Interface
         {
             if (canChange)
             {
-
+                //change la taille du Datagridview pour qu'il se redimensionne automatiquement
+                dgvResultatSmartphones.Height = 0;
+                if(dgvResultatSmartphones.AutoSize == false) { dgvResultatSmartphones.AutoSize = true; }
+                
                 ComboBox cb = sender as ComboBox;
-
-
-            
+                
                 foreach (ComboBox cbs in p.Controls)
                 {
                     canChange = false;
@@ -243,6 +242,7 @@ namespace P_GestProj2_Interface
                 dgvResultatSmartphones.Rows.Clear();
                 dgvResultatSmartphones.Columns.Clear();
                 dgvResultatSmartphones.DataSource = dv;
+
 
                 connection.Close();
             }
@@ -317,7 +317,7 @@ namespace P_GestProj2_Interface
             System.Diagnostics.Process.Start(GREGORY);
         }
 
-        private void btnStopContact_Click(object sender, EventArgs e)
+        private void BtnStopContact_Click(object sender, EventArgs e)
         {
             pnlContact.Enabled = false;
             pnlContact.Visible = false;
