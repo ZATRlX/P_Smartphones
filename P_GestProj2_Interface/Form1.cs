@@ -76,12 +76,26 @@ namespace P_GestProj2_Interface
 
             }
 
-            MySqlDataReader rdrPrix = ExecuteQuery(@"SELECT DISTINCT valPrix FROM t_valeur ORDER BY valPrix;");
+            MySqlDataReader rdrPrix = ExecuteQuery(@"SELECT DISTINCT MAX(valPrix) FROM t_valeur;");
 
-            while (rdrMarque.Read())
+            while (rdrPrix.Read())
             {
 
-                cbPrix.Items.Add(rdrPrix.GetString("smaMarque"));
+                var tmp1 = Int32.Parse(rdrPrix.GetString("max(valPrix)"));
+
+                if(tmp1 / 100 > 0)
+                {
+                    tbrPrixMax.TickFrequency = 50;
+                    tbrPrixMin.TickFrequency = 50;
+                }
+                else
+                {
+                    tbrPrixMax.TickFrequency = 10;
+                    tbrPrixMin.TickFrequency = 10;
+                }
+
+                tbrPrixMax.Maximum = tmp1;
+                tbrPrixMin.Maximum = tmp1;
 
             }
 
@@ -122,7 +136,7 @@ namespace P_GestProj2_Interface
 
 
             p.Controls.Add(cbCPU);
-            p.Controls.Add(cbPrix);
+           // p.Controls.Add(cbPrix);
             p.Controls.Add(cbTailleEcran);
             p.Controls.Add(cbRAM);
             p.Controls.Add(cbOS);

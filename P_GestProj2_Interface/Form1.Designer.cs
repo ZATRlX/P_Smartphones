@@ -28,9 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.grpFiltres = new System.Windows.Forms.GroupBox();
+            this.lblPrixMax = new System.Windows.Forms.Label();
+            this.tbrPrixMax = new System.Windows.Forms.TrackBar();
+            this.lblPrixMin = new System.Windows.Forms.Label();
+            this.tbrPrixMin = new System.Windows.Forms.TrackBar();
             this.label2 = new System.Windows.Forms.Label();
             this.cbMarque = new System.Windows.Forms.ComboBox();
             this.lblRAM = new System.Windows.Forms.Label();
@@ -45,15 +49,11 @@
             this.lblOS = new System.Windows.Forms.Label();
             this.dgvResultatSmartphones = new System.Windows.Forms.DataGridView();
             this.pbTitle = new System.Windows.Forms.PictureBox();
-            this.tbrPrixMin = new System.Windows.Forms.TrackBar();
-            this.lblPrixMin = new System.Windows.Forms.Label();
-            this.lblPrixMax = new System.Windows.Forms.Label();
-            this.tbrPrixMax = new System.Windows.Forms.TrackBar();
             this.grpFiltres.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tbrPrixMax)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbrPrixMin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultatSmartphones)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbrPrixMin)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbrPrixMax)).BeginInit();
             this.SuspendLayout();
             // 
             // grpFiltres
@@ -82,6 +82,44 @@
             this.grpFiltres.TabIndex = 0;
             this.grpFiltres.TabStop = false;
             this.grpFiltres.Text = "Filtres";
+            // 
+            // lblPrixMax
+            // 
+            this.lblPrixMax.AutoSize = true;
+            this.lblPrixMax.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrixMax.Location = new System.Drawing.Point(669, 84);
+            this.lblPrixMax.Name = "lblPrixMax";
+            this.lblPrixMax.Size = new System.Drawing.Size(93, 15);
+            this.lblPrixMax.TabIndex = 18;
+            this.lblPrixMax.Text = "Prix maximum :";
+            // 
+            // tbrPrixMax
+            // 
+            this.tbrPrixMax.LargeChange = 50;
+            this.tbrPrixMax.Location = new System.Drawing.Point(672, 100);
+            this.tbrPrixMax.Name = "tbrPrixMax";
+            this.tbrPrixMax.Size = new System.Drawing.Size(227, 45);
+            this.tbrPrixMax.SmallChange = 10;
+            this.tbrPrixMax.TabIndex = 17;
+            // 
+            // lblPrixMin
+            // 
+            this.lblPrixMin.AutoSize = true;
+            this.lblPrixMin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrixMin.Location = new System.Drawing.Point(669, 25);
+            this.lblPrixMin.Name = "lblPrixMin";
+            this.lblPrixMin.Size = new System.Drawing.Size(90, 15);
+            this.lblPrixMin.TabIndex = 16;
+            this.lblPrixMin.Text = "Prix minimum :";
+            // 
+            // tbrPrixMin
+            // 
+            this.tbrPrixMin.LargeChange = 50;
+            this.tbrPrixMin.Location = new System.Drawing.Point(672, 41);
+            this.tbrPrixMin.Name = "tbrPrixMin";
+            this.tbrPrixMin.Size = new System.Drawing.Size(227, 45);
+            this.tbrPrixMin.SmallChange = 10;
+            this.tbrPrixMin.TabIndex = 15;
             // 
             // label2
             // 
@@ -250,14 +288,14 @@
             this.dgvResultatSmartphones.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgvResultatSmartphones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvResultatSmartphones.Cursor = System.Windows.Forms.Cursors.Default;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.ScrollBar;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvResultatSmartphones.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.ScrollBar;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvResultatSmartphones.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgvResultatSmartphones.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnF2;
             this.dgvResultatSmartphones.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.dgvResultatSmartphones.Location = new System.Drawing.Point(60, 276);
@@ -281,40 +319,6 @@
             this.pbTitle.TabIndex = 4;
             this.pbTitle.TabStop = false;
             // 
-            // tbrPrixMin
-            // 
-            this.tbrPrixMin.Location = new System.Drawing.Point(672, 41);
-            this.tbrPrixMin.Name = "tbrPrixMin";
-            this.tbrPrixMin.Size = new System.Drawing.Size(227, 45);
-            this.tbrPrixMin.TabIndex = 15;
-            // 
-            // lblPrixMin
-            // 
-            this.lblPrixMin.AutoSize = true;
-            this.lblPrixMin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrixMin.Location = new System.Drawing.Point(669, 25);
-            this.lblPrixMin.Name = "lblPrixMin";
-            this.lblPrixMin.Size = new System.Drawing.Size(90, 15);
-            this.lblPrixMin.TabIndex = 16;
-            this.lblPrixMin.Text = "Prix minimum :";
-            // 
-            // lblPrixMax
-            // 
-            this.lblPrixMax.AutoSize = true;
-            this.lblPrixMax.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrixMax.Location = new System.Drawing.Point(669, 84);
-            this.lblPrixMax.Name = "lblPrixMax";
-            this.lblPrixMax.Size = new System.Drawing.Size(93, 15);
-            this.lblPrixMax.TabIndex = 18;
-            this.lblPrixMax.Text = "Prix maximum :";
-            // 
-            // tbrPrixMax
-            // 
-            this.tbrPrixMax.Location = new System.Drawing.Point(672, 100);
-            this.tbrPrixMax.Name = "tbrPrixMax";
-            this.tbrPrixMax.Size = new System.Drawing.Size(227, 45);
-            this.tbrPrixMax.TabIndex = 17;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -335,10 +339,10 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.grpFiltres.ResumeLayout(false);
             this.grpFiltres.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tbrPrixMax)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbrPrixMin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultatSmartphones)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbrPrixMin)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbrPrixMax)).EndInit();
             this.ResumeLayout(false);
 
         }
