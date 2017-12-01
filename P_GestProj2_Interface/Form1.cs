@@ -2,8 +2,6 @@
 using System;
 using System.Windows.Forms;
 using System.Data;
-using System.Diagnostics;
-using System.IO;
 
 namespace P_GestProj2_Interface
 {
@@ -14,7 +12,6 @@ namespace P_GestProj2_Interface
         MySqlDataReader rdr;
 
         bool canChange = true;
-        string strEasyphp = @"D:\DATA\EasyPHP-DevServer-14.1VC11-Portable\EasyPHP-DevServer-14.1VC11.exe";
 
         DataView dv = new DataView();
 
@@ -24,7 +21,6 @@ namespace P_GestProj2_Interface
         {
             InitializeComponent();
 
-            Process.Start(Environment.CurrentDirectory + strEasyphp);
 
             MySqlDataReader rdr3 = ExecuteQuery(@"SELECT smaMarque, smaModele, smaDate, smaOS, smaConstructeurs, smaTailleEcran, smaAutonomie, smaRAM, proNom FROM t_smartphone INNER JOIN t_processeur ON t_smartphone.Idproc = t_processeur.idProcesseur;");
 
