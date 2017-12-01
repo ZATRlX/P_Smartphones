@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.grpFiltres = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -45,14 +45,24 @@
             this.lblOS = new System.Windows.Forms.Label();
             this.dgvResultatSmartphones = new System.Windows.Forms.DataGridView();
             this.pbTitle = new System.Windows.Forms.PictureBox();
+            this.tbrPrixMin = new System.Windows.Forms.TrackBar();
+            this.lblPrixMin = new System.Windows.Forms.Label();
+            this.lblPrixMax = new System.Windows.Forms.Label();
+            this.tbrPrixMax = new System.Windows.Forms.TrackBar();
             this.grpFiltres.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultatSmartphones)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbrPrixMin)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbrPrixMax)).BeginInit();
             this.SuspendLayout();
             // 
             // grpFiltres
             // 
             this.grpFiltres.BackColor = System.Drawing.Color.Transparent;
+            this.grpFiltres.Controls.Add(this.lblPrixMax);
+            this.grpFiltres.Controls.Add(this.tbrPrixMax);
+            this.grpFiltres.Controls.Add(this.lblPrixMin);
+            this.grpFiltres.Controls.Add(this.tbrPrixMin);
             this.grpFiltres.Controls.Add(this.label2);
             this.grpFiltres.Controls.Add(this.cbMarque);
             this.grpFiltres.Controls.Add(this.lblRAM);
@@ -66,9 +76,9 @@
             this.grpFiltres.Controls.Add(this.cbDate);
             this.grpFiltres.Controls.Add(this.lblOS);
             this.grpFiltres.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpFiltres.Location = new System.Drawing.Point(176, 101);
+            this.grpFiltres.Location = new System.Drawing.Point(60, 108);
             this.grpFiltres.Name = "grpFiltres";
-            this.grpFiltres.Size = new System.Drawing.Size(673, 151);
+            this.grpFiltres.Size = new System.Drawing.Size(920, 151);
             this.grpFiltres.TabIndex = 0;
             this.grpFiltres.TabStop = false;
             this.grpFiltres.Text = "Filtres";
@@ -240,14 +250,14 @@
             this.dgvResultatSmartphones.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgvResultatSmartphones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvResultatSmartphones.Cursor = System.Windows.Forms.Cursors.Default;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.ScrollBar;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvResultatSmartphones.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.ScrollBar;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvResultatSmartphones.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvResultatSmartphones.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnF2;
             this.dgvResultatSmartphones.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.dgvResultatSmartphones.Location = new System.Drawing.Point(60, 276);
@@ -271,6 +281,40 @@
             this.pbTitle.TabIndex = 4;
             this.pbTitle.TabStop = false;
             // 
+            // tbrPrixMin
+            // 
+            this.tbrPrixMin.Location = new System.Drawing.Point(672, 41);
+            this.tbrPrixMin.Name = "tbrPrixMin";
+            this.tbrPrixMin.Size = new System.Drawing.Size(227, 45);
+            this.tbrPrixMin.TabIndex = 15;
+            // 
+            // lblPrixMin
+            // 
+            this.lblPrixMin.AutoSize = true;
+            this.lblPrixMin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrixMin.Location = new System.Drawing.Point(669, 25);
+            this.lblPrixMin.Name = "lblPrixMin";
+            this.lblPrixMin.Size = new System.Drawing.Size(90, 15);
+            this.lblPrixMin.TabIndex = 16;
+            this.lblPrixMin.Text = "Prix minimum :";
+            // 
+            // lblPrixMax
+            // 
+            this.lblPrixMax.AutoSize = true;
+            this.lblPrixMax.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrixMax.Location = new System.Drawing.Point(669, 84);
+            this.lblPrixMax.Name = "lblPrixMax";
+            this.lblPrixMax.Size = new System.Drawing.Size(93, 15);
+            this.lblPrixMax.TabIndex = 18;
+            this.lblPrixMax.Text = "Prix maximum :";
+            // 
+            // tbrPrixMax
+            // 
+            this.tbrPrixMax.Location = new System.Drawing.Point(672, 100);
+            this.tbrPrixMax.Name = "tbrPrixMax";
+            this.tbrPrixMax.Size = new System.Drawing.Size(227, 45);
+            this.tbrPrixMax.TabIndex = 17;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -293,6 +337,8 @@
             this.grpFiltres.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultatSmartphones)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbrPrixMin)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbrPrixMax)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -314,6 +360,10 @@
         private System.Windows.Forms.DataGridView dgvResultatSmartphones;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pbTitle;
+        private System.Windows.Forms.Label lblPrixMax;
+        private System.Windows.Forms.TrackBar tbrPrixMax;
+        private System.Windows.Forms.Label lblPrixMin;
+        private System.Windows.Forms.TrackBar tbrPrixMin;
     }
 }
 
