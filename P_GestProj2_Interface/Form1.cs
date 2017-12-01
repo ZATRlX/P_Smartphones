@@ -1,13 +1,14 @@
 ﻿/*
 Auteur : Loïc Rosset
 Modifications par : Pierric Ripoll, Loïc Rosset, Ricardo Olivera, Grégory Briand
-Description :   Programme permettant de sélectionner des Smarthpones dans une liste de Smartphones (géré en externe dans une base de données)
+Description :   Programme permettant de sélectionner des Smartphones dans une liste de Smartphones (géré en externe dans une base de données)
                 Dans le cadre du Projet GestProj2
 */
 using MySql.Data.MySqlClient;
 using System;
 using System.Windows.Forms;
 using System.Data;
+using System.Diagnostics;
 
 namespace P_GestProj2_Interface
 {
@@ -35,15 +36,20 @@ namespace P_GestProj2_Interface
         const string LOIC = "https://github.com/loicrx9";
         const string GREGORY = "https://github.com/Imacutekayx";
         
-
         DataView dv = new DataView();
-        
         Panel p = new Panel();
-
-
+        
         public Form1()
         {
             InitializeComponent();
+
+            //crée la base de donnée accessible par l'utilisateur
+            Process EasyPHP = Process.Start(@"EasyPHP-DevServer-14.1VC11-Portable\EasyPHP-DevServer-14.1VC11.exe");
+            //TODO(Résoudre le problème d'insertion par .sql)
+            MySqlDataReader rdr2 = ExecuteQuery(@"DROP DATABASE IF EXISTS db_Smartphones;
+                                                CREATE DATABASE db_Smartphones CHARACTER SET utf8 COLLATE utf8_general_ci;
+                                                USE db_Smartphones;
+                                                db_smartphones < CSV\CreateDatabase.sql");
 
             //rajoute les composants de la fonction Contact au panel de cette même fonction
             pnlContact.Controls.Add(btnStopContact);
@@ -64,8 +70,7 @@ namespace P_GestProj2_Interface
 
             //charger dans rdr3 La Requête sql qui est dans le string.
             MySqlDataReader rdr3 = ExecuteQuery(@"SELECT smaMarque, smaModele, smaDate, smaOS, smaConstructeurs, smaTailleEcran, smaAutonomie, smaRAM, proNom FROM t_smartphone INNER JOIN t_processeur ON t_smartphone.Idproc = t_processeur.idProcesseur;");
-
-
+            
             //créé les colonnes dans le DataGridView, avec leur noms
             dgvResultatSmartphones.Columns.Add("colMarque", "Marque");
             dgvResultatSmartphones.Columns.Add("colModele", "Modele");
@@ -94,9 +99,7 @@ namespace P_GestProj2_Interface
                 dgvResultatSmartphones[7, i].Value = rdr3.GetString("smaRAM");
                 dgvResultatSmartphones[8, i].Value = rdr3.GetString("proNom");
                 i++;
-
             }
-
 
             connection.Close();
 
@@ -104,56 +107,41 @@ namespace P_GestProj2_Interface
 
             while (rdrOS.Read())
             {
-
                 cbOS.Items.Add(rdrOS.GetString("smaOS"));
-
             }
 
             MySqlDataReader rdrMarque = ExecuteQuery(@"SELECT DISTINCT smaMarque FROM t_smartphone ORDER BY smaMarque;;");
 
             while (rdrMarque.Read())
             {
-
                 cbMarque.Items.Add(rdrMarque.GetString("smaMarque"));
-
             }
 
             MySqlDataReader rdrTaille = ExecuteQuery(@"SELECT DISTINCT smaTailleEcran FROM t_smartphone ORDER BY smaTailleEcran;;");
 
             while (rdrTaille.Read())
             {
-
                 cbTailleEcran.Items.Add(rdrTaille.GetString("smaTailleEcran") + " pouces");
-
             }
 
             MySqlDataReader rdrRAM = ExecuteQuery(@"SELECT DISTINCT smaRAM FROM t_smartphone ORDER BY smaRAM;");
 
             while (rdrRAM.Read())
             {
-
                 cbRAM.Items.Add(rdrRAM.GetString("smaRAM"));
-
             }
 
             MySqlDataReader rdrCPU = ExecuteQuery(@"SELECT DISTINCT proNom FROM t_processeur ORDER BY proPerformances;");
 
             while (rdrCPU.Read())
             {
-
                 cbCPU.Items.Add(rdrCPU.GetString("proNom"));
-
             }
-
-
 
             cbDate.Items.Add("2015");
             cbDate.Items.Add("2016");
             cbDate.Items.Add("2017");
-
-
             
-
             p.Controls.Add(cbCPU);
             p.Controls.Add(cbTailleEcran);
             p.Controls.Add(cbRAM);
@@ -186,8 +174,6 @@ namespace P_GestProj2_Interface
             rdr = acmd.ExecuteReader();
 
             return rdr;
-
-
         }
 
         public void ChangeFilters(object sender, EventArgs e)
@@ -208,8 +194,7 @@ namespace P_GestProj2_Interface
                         cbs.SelectedIndex = -1;
                     
                 }
-
-
+                
                 DataSet ds = new DataSet();
                 MySqlDataAdapter daa = new MySqlDataAdapter(@"SELECT smaMarque AS Marque, smaModele AS Modele, smaDate AS DateSortie, smaOS AS OS, smaConstructeurs AS Constructeur, smaTailleEcran AS TailleEcran, smaAutonomie AS Autonomie, smaRAM AS RAM, proNom AS Processeur FROM t_smartphone INNER JOIN t_processeur ON t_smartphone.Idproc = t_processeur.idProcesseur;", connection);
                 connection.Close();
@@ -217,8 +202,7 @@ namespace P_GestProj2_Interface
                 daa.Fill(ds, "t_smartphone, t_Processeur");
 
                 DataView dv;
-
-
+                
                 if (cb.Name == "cbCPU")
                 {
                     dv = new DataView(ds.Tables[0], "Processeur  = '" + cb.Text + "'", "Processeur Desc", DataViewRowState.CurrentRows);
@@ -236,14 +220,12 @@ namespace P_GestProj2_Interface
                     //dv = new DataView(ds.Tables[0], "sma" + cb.Name.Substring(2) + " = '" + cb.Text + "'", "sma" + cb.Name.Substring(2) + " Desc", DataViewRowState.CurrentRows);
                     dv = new DataView(ds.Tables[0], cb.Name.Substring(2) + " = '" + cb.Text + "'", cb.Name.Substring(2) + " Desc", DataViewRowState.CurrentRows);
                 }
-
-
+                
                 dgvResultatSmartphones.DataSource = null;
                 dgvResultatSmartphones.Rows.Clear();
                 dgvResultatSmartphones.Columns.Clear();
                 dgvResultatSmartphones.DataSource = dv;
-
-
+                
                 connection.Close();
             }
 
@@ -256,7 +238,6 @@ namespace P_GestProj2_Interface
 
             while (rdr2.Read())
             {
-
                 string strOS = rdr.GetString("smaOS");
                 string strMarque = rdr.GetString("smaMarque");
                 string strTailleEcran = rdr.GetString("");
