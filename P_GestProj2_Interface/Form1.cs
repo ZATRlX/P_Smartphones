@@ -28,17 +28,18 @@ namespace P_GestProj2_Interface
 
         //Utilisé dans la méthode ChangeFilters
         bool canChange = true;
+        string DateName = "Date de sortie";
+        string Screen = "Taille Ecran";
+
+        //constantes des liens Github des membres de l'équipe utilisés dans la fonction Contact
         const string PIERRIC = "https://github.com/Nyawww";
         const string RICARDO = "https://github.com/ZATRlX";
         const string LOIC = "https://github.com/loicrx9";
         const string GREGORY = "https://github.com/Imacutekayx";
         
+
         DataView dv = new DataView();
-
-
-        //DataView dv = new DataView();
-
-
+        
         Panel p = new Panel();
 
 
@@ -46,6 +47,7 @@ namespace P_GestProj2_Interface
         {
             InitializeComponent();
 
+            //rajoute les composants de la fonction Contact au panel de cette même fonction
             pnlContact.Controls.Add(btnStopContact);
             pnlContact.Controls.Add(lblPierric);
             pnlContact.Controls.Add(llblPierric);
@@ -56,6 +58,7 @@ namespace P_GestProj2_Interface
             pnlContact.Controls.Add(lblGregory);
             pnlContact.Controls.Add(llblGregory);
 
+            //écrit au point des liens des contacts
             llblPierric.Text = PIERRIC;
             llblRicardo.Text = RICARDO;
             llblLoic.Text = LOIC;
@@ -68,10 +71,10 @@ namespace P_GestProj2_Interface
             //créé les colonnes dans le DataGridView, avec leur noms
             dgvResultatSmartphones.Columns.Add("colMarque", "Marque");
             dgvResultatSmartphones.Columns.Add("colModele", "Modele");
-            dgvResultatSmartphones.Columns.Add("colDate", "Date de sortie");
+            dgvResultatSmartphones.Columns.Add("colDate", "DateSortie");
             dgvResultatSmartphones.Columns.Add("colOS", "OS");
             dgvResultatSmartphones.Columns.Add("colConstructeurs", "Constructeurs");
-            dgvResultatSmartphones.Columns.Add("colTailleEcran", "Taille Ecran");
+            dgvResultatSmartphones.Columns.Add("colTailleEcran", "TailleEcran");
             dgvResultatSmartphones.Columns.Add("colAutomomie", "Autonomie");
             dgvResultatSmartphones.Columns.Add("colRAM", "RAM");
             dgvResultatSmartphones.Columns.Add("colProcesseur", "Processeur");
@@ -168,15 +171,6 @@ namespace P_GestProj2_Interface
             p.Location = new System.Drawing.Point(10, 14);
         }
 
-        private void Button1_Click(object sender, EventArgs e)
-        {
-
-
-
-
-
-        }
-
         private MySqlDataReader ExecuteQuery(string query)
         {
             MySqlCommand acmd = new MySqlCommand(query, connection);
@@ -218,7 +212,7 @@ namespace P_GestProj2_Interface
 
 
                 DataSet ds = new DataSet();
-                MySqlDataAdapter daa = new MySqlDataAdapter(@"SELECT smaMarque, smaModele, smaDate, smaOS, smaConstructeurs, smaTailleEcran, smaAutonomie, smaRAM, proNom FROM t_smartphone INNER JOIN t_processeur ON t_smartphone.Idproc = t_processeur.idProcesseur;", connection);
+                MySqlDataAdapter daa = new MySqlDataAdapter(@"SELECT smaMarque AS Marque, smaModele AS Modele, smaDate AS DateSortie, smaOS AS OS, smaConstructeurs AS Constructeur, smaTailleEcran AS TailleEcran, smaAutonomie AS Autonomie, smaRAM AS RAM, proNom AS Processeur FROM t_smartphone INNER JOIN t_processeur ON t_smartphone.Idproc = t_processeur.idProcesseur;", connection);
                 connection.Close();
                 connection.Open();
                 daa.Fill(ds, "t_smartphone, t_Processeur");
@@ -228,19 +222,20 @@ namespace P_GestProj2_Interface
 
                 if (cb.Name == "cbCPU")
                 {
-                    dv = new DataView(ds.Tables[0], "proNom  = '" + cb.Text + "'", "proNom Desc", DataViewRowState.CurrentRows);
+                    dv = new DataView(ds.Tables[0], "Processeur  = '" + cb.Text + "'", "Processeur Desc", DataViewRowState.CurrentRows);
                 }
                 else if(cb.Name == "cbDate")
                 {
-                    dv = new DataView(ds.Tables[0], "smaDate LIKE '%" + cb.Text + "%'", "smaDate Desc", DataViewRowState.CurrentRows);
+                    dv = new DataView(ds.Tables[0], "DateSortie LIKE '%" + cb.Text + "%'", "DateSortie Desc", DataViewRowState.CurrentRows);
                 }
                 else if(cb.Name == "cbTailleEcran")
                 {
-                    dv = new DataView(ds.Tables[0], "smaTailleEcran = " + Convert.ToSingle(cb.Text.Replace(" pouces", "")), "smaTailleEcran Desc", DataViewRowState.CurrentRows);
+                    dv = new DataView(ds.Tables[0], "TailleEcran = " + Convert.ToSingle(cb.Text.Replace(" pouces", "")), "TailleEcran Desc", DataViewRowState.CurrentRows);
                 }
                 else
                 {
-                    dv = new DataView(ds.Tables[0], "sma" + cb.Name.Substring(2) + " = '" + cb.Text + "'", "sma" + cb.Name.Substring(2) + " Desc", DataViewRowState.CurrentRows);
+                    //dv = new DataView(ds.Tables[0], "sma" + cb.Name.Substring(2) + " = '" + cb.Text + "'", "sma" + cb.Name.Substring(2) + " Desc", DataViewRowState.CurrentRows);
+                    dv = new DataView(ds.Tables[0], cb.Name.Substring(2) + " = '" + cb.Text + "'", cb.Name.Substring(2) + " Desc", DataViewRowState.CurrentRows);
                 }
 
 
