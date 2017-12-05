@@ -325,3 +325,9 @@
 01/12 10:46:11 EasyPHP Apache CreateProcess "C:\Users\briandgr\Desktop\P_SMAR~1\P_GEST~1\bin\Debug\EASYPH~1.1VC\binaries\apache\bin\eds-httpd.exe"
 01/12 10:46:11 EasyPHP CreateProcess "C:\Users\briandgr\Desktop\P_SMAR~1\P_GEST~1\bin\Debug\EASYPH~1.1VC\binaries\mysql\bin\eds-mysqld.exe --defaults-file="C:\Users\briandgr\Desktop\P_SMAR~1\P_GEST~1\bin\Debug\EASYPH~1.1VC\binaries\mysql\my.ini" --language=english"
 01/12 10:46:16 EasyPHP EasyPHP Vérifier la version
+01/12 11:26:59 EasyPHP EasyPHP Arret des serveurs
+01/12 11:26:59 EasyPHP Apache stop event: ap8084_shutdown
+01/12 11:26:59 EasyPHP Apache::StopExe stop event ap8084_shutdown fail : 2
+01/12 11:27:00 EasyPHP MySqlSutdown event = MySQLShutdown8096
+01/12 11:27:00 EasyPHP MySqlSutdown event open fail = 2
+01/12 11:27:00 EasyPHP End EasyPHP...
