@@ -49,6 +49,8 @@
             this.lblOS = new System.Windows.Forms.Label();
             this.dgvResultatSmartphones = new System.Windows.Forms.DataGridView();
             this.pbTitle = new System.Windows.Forms.PictureBox();
+            this.lblMin = new System.Windows.Forms.Label();
+            this.lblMax = new System.Windows.Forms.Label();
             this.grpFiltres.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbrPrixMax)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbrPrixMin)).BeginInit();
@@ -101,6 +103,7 @@
             this.tbrPrixMax.Size = new System.Drawing.Size(227, 45);
             this.tbrPrixMax.SmallChange = 10;
             this.tbrPrixMax.TabIndex = 17;
+            this.tbrPrixMax.ValueChanged += new System.EventHandler(this.UpdateTrackBars);
             // 
             // lblPrixMin
             // 
@@ -120,6 +123,7 @@
             this.tbrPrixMin.Size = new System.Drawing.Size(227, 45);
             this.tbrPrixMin.SmallChange = 10;
             this.tbrPrixMin.TabIndex = 15;
+            this.tbrPrixMin.ValueChanged += new System.EventHandler(this.UpdateTrackBars);
             // 
             // label2
             // 
@@ -319,6 +323,24 @@
             this.pbTitle.TabIndex = 4;
             this.pbTitle.TabStop = false;
             // 
+            // lblMin
+            // 
+            this.lblMin.AutoSize = true;
+            this.lblMin.Location = new System.Drawing.Point(987, 158);
+            this.lblMin.Name = "lblMin";
+            this.lblMin.Size = new System.Drawing.Size(13, 13);
+            this.lblMin.TabIndex = 5;
+            this.lblMin.Text = "0";
+            // 
+            // lblMax
+            // 
+            this.lblMax.AutoSize = true;
+            this.lblMax.Location = new System.Drawing.Point(987, 210);
+            this.lblMax.Name = "lblMax";
+            this.lblMax.Size = new System.Drawing.Size(13, 13);
+            this.lblMax.TabIndex = 6;
+            this.lblMax.Text = "0";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -327,6 +349,8 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1045, 676);
+            this.Controls.Add(this.lblMax);
+            this.Controls.Add(this.lblMin);
             this.Controls.Add(this.pbTitle);
             this.Controls.Add(this.dgvResultatSmartphones);
             this.Controls.Add(this.grpFiltres);
@@ -344,6 +368,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultatSmartphones)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -368,6 +393,8 @@
         private System.Windows.Forms.TrackBar tbrPrixMax;
         private System.Windows.Forms.Label lblPrixMin;
         private System.Windows.Forms.TrackBar tbrPrixMin;
+        private System.Windows.Forms.Label lblMin;
+        private System.Windows.Forms.Label lblMax;
     }
 }
 

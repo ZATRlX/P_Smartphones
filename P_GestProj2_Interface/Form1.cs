@@ -14,11 +14,11 @@ namespace P_GestProj2_Interface
         MySqlConnection connection = new MySqlConnection(connectionString);
         MySqlDataReader rdr;
 
-        bool canChange = true;
-
         DataView dv = new DataView();
 
         Panel p = new Panel();
+
+        int tmp1;
 
         public Form1()
         {
@@ -81,23 +81,31 @@ namespace P_GestProj2_Interface
             while (rdrPrix.Read())
             {
 
-                var tmp1 = Int32.Parse(rdrPrix.GetString("max(valPrix)"));
-
-                if(tmp1 / 100 > 0)
-                {
-                    tbrPrixMax.TickFrequency = 50;
-                    tbrPrixMin.TickFrequency = 50;
-                }
-                else
-                {
-                    tbrPrixMax.TickFrequency = 10;
-                    tbrPrixMin.TickFrequency = 10;
-                }
-
-                tbrPrixMax.Maximum = tmp1;
-                tbrPrixMin.Maximum = tmp1;
+                tmp1 = Int32.Parse(rdrPrix.GetString("max(valPrix)"));
 
             }
+
+            #region Set trackbar default values
+            if (tmp1 / 100 > 0)
+            {
+                tbrPrixMax.TickFrequency = 50;
+                tbrPrixMin.TickFrequency = 50;
+            }
+            else
+            {
+                tbrPrixMax.TickFrequency = 10;
+                tbrPrixMin.TickFrequency = 10;
+            }
+
+            tbrPrixMax.Maximum = tmp1;
+            tbrPrixMin.Maximum = tmp1;
+
+
+            tbrPrixMax.Value = tmp1;
+
+            UpdateTrackBars();
+
+            #endregion
 
             MySqlDataReader rdrTaille = ExecuteQuery(@"SELECT DISTINCT smaTailleEcran FROM t_smartphone ORDER BY smaTailleEcran;");
 
@@ -259,16 +267,21 @@ namespace P_GestProj2_Interface
                 request += "smaTailleEcran = " + Convert.ToSingle(cbTailleEcran.Text.Replace(" pouces", "")) + " AND ";
             if (cbCPU.Text != "")
                 request += "proNom  = '" + cbCPU.Text + "' AND ";
-            if (cbRAM.Text != null)
+            if (cbRAM.Text != "")
                 request += "smaRAM LIKE '" + cbRAM.Text + "' AND ";
+            if (tbrPrixMax.Value != tmp1 || tbrPrixMin.Value != 0)
+            { 
+                request += "valPrix < " + tbrPrixMax.Value + " AND valPrix > " + tbrPrixMin.Value + " AND ";
+            }
 
 
-
+            char[] MyChar = { 'A', 'N', 'D', ' ' };
+            request = request.TrimEnd(MyChar);
 
 
             DataView dv;
 
-            dv = new DataView(ds.Tables[0],request,"smaMarque Desc", DataViewRowState.CurrentRows);
+            dv = new DataView(ds.Tables[0], request, "smaMarque Desc", DataViewRowState.CurrentRows);
 
 
             dgvResultatSmartphones.DataSource = null;
@@ -317,6 +330,36 @@ namespace P_GestProj2_Interface
             //PopUp(show);
 
             connection.Close();
+        }
+        
+
+        /// <summary>
+        /// Méthode activée quand un slider filtre de prix est changé. 
+        /// S'assure que les sliders soient cohérents et éets à jour les chiffres à côtés de visualisation
+        /// </summary>
+        private void UpdateTrackBars(object sender = null, EventArgs e = null)
+        {
+
+            lblMin.Text = tbrPrixMin.Value.ToString();
+            lblMax.Text = tbrPrixMax.Value.ToString();
+
+            TrackBar trckbar = sender as TrackBar;
+
+            if (trckbar != null)
+            {
+                if (trckbar.Name == "tbrPrixMax")
+                {
+                    if (tbrPrixMax.Value < tbrPrixMin.Value)
+                        tbrPrixMax.Value = tbrPrixMin.Value;
+                }
+                if (trckbar.Name == "tbrPrixMin")
+                {
+                    if (tbrPrixMax.Value < tbrPrixMin.Value)
+                        tbrPrixMin.Value = tbrPrixMax.Value;
+                }
+            }
+
+            ChangeFilters(new object(), new EventArgs());
         }
 
 
