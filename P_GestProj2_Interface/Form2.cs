@@ -125,16 +125,37 @@ namespace P_GestProj2_Interface
             f.dgvResultatSmartphones.Columns[9].Visible = false;
         }
 
-
+        //Requète n°4
+        //Le smartphone le moins cher par OS et par marque
         private void btn5_Click(object sender, EventArgs e)
         {
             Form1 f = this.Owner as Form1;
             DataSet ds = new DataSet();
-            MySqlDataAdapter daa = new MySqlDataAdapter(@"SELECT smaMarque, smaModele, smaDate, smaOS, smaConstructeurs, smaTailleEcran, smaAutonomie, smaRAM, proNom, valPrix FROM t_smartphone INNER JOIN t_processeur ON t_smartphone.Idproc = t_processeur.idProcesseur INNER JOIN t_valeur ON t_valeur.Idsmartphone = t_smartphone.idSmartphone WHERE t_valeur.valDate LIKE '2017-09-15' ORDER BY valPrix DESC LIMIT 1;", connection);
+            MySqlDataAdapter daa = new MySqlDataAdapter(@"SELECT smaMarque, smaModele, smaDate, smaOS, smaConstructeurs, smaTailleEcran, smaAutonomie, smaRAM, proNom, valPrix FROM t_smartphone INNER JOIN t_processeur ON t_smartphone.Idproc = t_processeur.idProcesseur INNER JOIN t_valeur ON t_valeur.Idsmartphone = t_smartphone.idSmartphone WHERE t_valeur.valDate LIKE '2017-09-15' AND t_smartphone.smaMarque LIKE 'Apple' ORDER BY valPrix LIMIT 1;", connection);
+            MySqlDataAdapter daa1 = new MySqlDataAdapter(@"SELECT smaMarque, smaModele, smaDate, smaOS, smaConstructeurs, smaTailleEcran, smaAutonomie, smaRAM, proNom, valPrix FROM t_smartphone INNER JOIN t_processeur ON t_smartphone.Idproc = t_processeur.idProcesseur INNER JOIN t_valeur ON t_valeur.Idsmartphone = t_smartphone.idSmartphone WHERE t_valeur.valDate LIKE '2017-09-15' AND t_smartphone.smaMarque LIKE 'Samsung' ORDER BY valPrix LIMIT 1;", connection);
+            MySqlDataAdapter daa2 = new MySqlDataAdapter(@"SELECT smaMarque, smaModele, smaDate, smaOS, smaConstructeurs, smaTailleEcran, smaAutonomie, smaRAM, proNom, valPrix FROM t_smartphone INNER JOIN t_processeur ON t_smartphone.Idproc = t_processeur.idProcesseur INNER JOIN t_valeur ON t_valeur.Idsmartphone = t_smartphone.idSmartphone WHERE t_valeur.valDate LIKE '2017-09-15' AND t_smartphone.smaMarque LIKE 'Sony' ORDER BY valPrix LIMIT 1;", connection);
+            MySqlDataAdapter daa3 = new MySqlDataAdapter(@"SELECT smaMarque, smaModele, smaDate, smaOS, smaConstructeurs, smaTailleEcran, smaAutonomie, smaRAM, proNom, valPrix FROM t_smartphone INNER JOIN t_processeur ON t_smartphone.Idproc = t_processeur.idProcesseur INNER JOIN t_valeur ON t_valeur.Idsmartphone = t_smartphone.idSmartphone WHERE t_valeur.valDate LIKE '2017-09-15' AND t_smartphone.smaMarque LIKE 'Huawei' ORDER BY valPrix LIMIT 1;", connection);
+            MySqlDataAdapter daa4 = new MySqlDataAdapter(@"SELECT smaMarque, smaModele, smaDate, smaOS, smaConstructeurs, smaTailleEcran, smaAutonomie, smaRAM, proNom, valPrix FROM t_smartphone INNER JOIN t_processeur ON t_smartphone.Idproc = t_processeur.idProcesseur INNER JOIN t_valeur ON t_valeur.Idsmartphone = t_smartphone.idSmartphone WHERE t_valeur.valDate LIKE '2017-09-15' AND t_smartphone.smaMarque LIKE 'LG' ORDER BY valPrix LIMIT 1;", connection);
+            MySqlDataAdapter daa5 = new MySqlDataAdapter(@"SELECT smaMarque, smaModele, smaDate, smaOS, smaConstructeurs, smaTailleEcran, smaAutonomie, smaRAM, proNom, valPrix FROM t_smartphone INNER JOIN t_processeur ON t_smartphone.Idproc = t_processeur.idProcesseur INNER JOIN t_valeur ON t_valeur.Idsmartphone = t_smartphone.idSmartphone WHERE t_valeur.valDate LIKE '2017-09-15' AND t_smartphone.smaMarque LIKE 'Lenovo' ORDER BY valPrix LIMIT 1;", connection);
+            MySqlDataAdapter daa6 = new MySqlDataAdapter(@"SELECT smaMarque, smaModele, smaDate, smaOS, smaConstructeurs, smaTailleEcran, smaAutonomie, smaRAM, proNom, valPrix FROM t_smartphone INNER JOIN t_processeur ON t_smartphone.Idproc = t_processeur.idProcesseur INNER JOIN t_valeur ON t_valeur.Idsmartphone = t_smartphone.idSmartphone WHERE t_valeur.valDate LIKE '2017-09-15' AND t_smartphone.smaMarque LIKE 'Microsoft' ORDER BY valPrix LIMIT 1;", connection);
+            MySqlDataAdapter daa7 = new MySqlDataAdapter(@"SELECT smaMarque, smaModele, smaDate, smaOS, smaConstructeurs, smaTailleEcran, smaAutonomie, smaRAM, proNom, valPrix FROM t_smartphone INNER JOIN t_processeur ON t_smartphone.Idproc = t_processeur.idProcesseur INNER JOIN t_valeur ON t_valeur.Idsmartphone = t_smartphone.idSmartphone WHERE t_valeur.valDate LIKE '2017-09-15' AND t_smartphone.smaMarque LIKE 'Motorola' ORDER BY valPrix LIMIT 1;", connection);
+            MySqlDataAdapter daa8 = new MySqlDataAdapter(@"SELECT smaMarque, smaModele, smaDate, smaOS, smaConstructeurs, smaTailleEcran, smaAutonomie, smaRAM, proNom, valPrix FROM t_smartphone INNER JOIN t_processeur ON t_smartphone.Idproc = t_processeur.idProcesseur INNER JOIN t_valeur ON t_valeur.Idsmartphone = t_smartphone.idSmartphone WHERE t_valeur.valDate LIKE '2017-09-15' AND t_smartphone.smaMarque LIKE 'OnePlus' ORDER BY valPrix LIMIT 1;", connection);
+            MySqlDataAdapter daa9 = new MySqlDataAdapter(@"SELECT smaMarque, smaModele, smaDate, smaOS, smaConstructeurs, smaTailleEcran, smaAutonomie, smaRAM, proNom, valPrix FROM t_smartphone INNER JOIN t_processeur ON t_smartphone.Idproc = t_processeur.idProcesseur INNER JOIN t_valeur ON t_valeur.Idsmartphone = t_smartphone.idSmartphone WHERE t_valeur.valDate LIKE '2017-09-15' AND t_smartphone.smaOS LIKE 'Android %' ORDER BY valPrix LIMIT 1;", connection);
+            MySqlDataAdapter daa10 = new MySqlDataAdapter(@"SELECT smaMarque, smaModele, smaDate, smaOS, smaConstructeurs, smaTailleEcran, smaAutonomie, smaRAM, proNom, valPrix FROM t_smartphone INNER JOIN t_processeur ON t_smartphone.Idproc = t_processeur.idProcesseur INNER JOIN t_valeur ON t_valeur.Idsmartphone = t_smartphone.idSmartphone WHERE t_valeur.valDate LIKE '2017-09-15' AND t_smartphone.smaOS LIKE 'iOS%' ORDER BY valPrix LIMIT 1;", connection);
 
             connection.Close();
             connection.Open();
             daa.Fill(ds, "t_smartphone, t_Processeur");
+            daa1.Fill(ds, "t_smartphone, t_Processeur");
+            daa2.Fill(ds, "t_smartphone, t_Processeur");
+            daa3.Fill(ds, "t_smartphone, t_Processeur");
+            daa4.Fill(ds, "t_smartphone, t_Processeur");
+            daa5.Fill(ds, "t_smartphone, t_Processeur");
+            daa6.Fill(ds, "t_smartphone, t_Processeur");
+            daa7.Fill(ds, "t_smartphone, t_Processeur");
+            daa8.Fill(ds, "t_smartphone, t_Processeur");
+            daa9.Fill(ds, "t_smartphone, t_Processeur");
+            daa10.Fill(ds, "t_smartphone, t_Processeur");
 
             DataView dv;
             dv = new DataView(ds.Tables[0], "", "proNom Desc", DataViewRowState.CurrentRows);
@@ -147,7 +168,7 @@ namespace P_GestProj2_Interface
             SortHeaderReverse(9);
         }
 
-        //Méthode
+        //Méthode de connexion à la base de données
         private MySqlDataReader ExecuteQuery(string query)
         {
             MySqlCommand acmd = new MySqlCommand(query, connection);

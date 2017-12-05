@@ -274,7 +274,7 @@
             // 
             // btnRequest
             // 
-            this.btnRequest.Location = new System.Drawing.Point(822, 79);
+            this.btnRequest.Location = new System.Drawing.Point(822, 12);
             this.btnRequest.Name = "btnRequest";
             this.btnRequest.Size = new System.Drawing.Size(158, 23);
             this.btnRequest.TabIndex = 5;
