@@ -9,9 +9,6 @@
 *.userosscache
 *.sln.docstates
 
-#Folder EasyPhp
-dir_to_ignore/P_GestProj2_Interface/bin/Debug/EasyPHP-DevServer-14.1VC11-Portable
-
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
