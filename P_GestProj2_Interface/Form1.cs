@@ -29,9 +29,7 @@ namespace P_GestProj2_Interface
 
         //Objet "lecteur" de données 
         MySqlDataReader rdr;
-
-        //Utilisé dans la méthode ChangeFilters
-        bool canChange = true;
+        
 
         //constantes des liens Github des membres de l'équipe utilisés dans la fonction Contact
         const string PIERRIC = "https://github.com/Nyawww";
@@ -53,13 +51,12 @@ namespace P_GestProj2_Interface
             InitializeComponent();
 
             //crée la base de donnée accessible par l'utilisateur
-            Process EasyPHP = Process.Start(@"EasyPHP-DevServer-14.1VC11-Portable\EasyPHP-DevServer-14.1VC11.exe");
+            //Process EasyPHP = Process.Start(@"EasyPHP-DevServer-14.1VC11-Portable\EasyPHP-DevServer-14.1VC11.exe");
             //TODO(Résoudre le problème d'insertion par .sql)
-            MySqlDataReader rdr2 = ExecuteQuery(@"DROP DATABASE IF EXISTS db_Smartphones;
-                                                CREATE DATABASE db_Smartphones CHARACTER SET utf8 COLLATE utf8_general_ci;
-                                                USE db_Smartphones;
-                                                //TODO importer le fichier .sql dans la base de donnée
-                                                db_smartphones < CSV\CreateDatabase.sql");
+            //MySqlDataReader rdr2 = ExecuteQuery(@"DROP DATABASE IF EXISTS db_Smartphones;
+            //                                    CREATE DATABASE db_Smartphones CHARACTER SET utf8 COLLATE utf8_general_ci;
+            //                                    USE db_Smartphones;
+            //                                    db_smartphones < CSV\CreateDatabase.sql");
 
             //rajoute les composants de la fonction Contact au panel de cette même fonction
             pnlContact.Controls.Add(btnStopContact);
@@ -93,8 +90,7 @@ namespace P_GestProj2_Interface
             dgvResultatSmartphones.Columns.Add("colAutomomie", "Autonomie");
             dgvResultatSmartphones.Columns.Add("colRAM", "RAM");
             dgvResultatSmartphones.Columns.Add("colProcesseur", "Processeur");
-
-            int i = 0;
+            
 
             //remplis les colonnes avec les valeurs de la base de données
             while (rdr3.Read())
@@ -241,25 +237,8 @@ namespace P_GestProj2_Interface
         /// <param name="e">Evenement déclanchant cette méthode</param>
         public void ChangeFilters(object sender, EventArgs e)
         {
-            //if (canChange)
-            //{
-
-            //    ComboBox cb = sender as ComboBox;
-
-
-
-            //    foreach (ComboBox cbs in p.Controls)
-            //    {
-            //        canChange = false;
-
-            //        if (cb != cbs)
-            //            cbs.SelectedIndex = -1;
-
-            //    }
-
-
             DataSet ds = new DataSet();
-            MySqlDataAdapter daa = new MySqlDataAdapter(@"SELECT smaMarque, smaModele, valPrix, smaDate, smaOS, smaConstructeurs, smaTailleEcran, smaAutonomie, smaRAM, proNom FROM t_valeur, t_smartphone INNER JOIN t_processeur ON t_smartphone.Idproc = t_processeur.idProcesseur WHERE t_valeur.idSmartphone = t_smartphone.idSmartphone AND t_valeur.valDate LIKE '2017-09-15';", connection);
+            MySqlDataAdapter daa = new MySqlDataAdapter(@"SELECT smaMarque AS Marque, smaModele AS Modele, valPrix AS Prix, smaDate AS Date, smaOS AS OS, smaConstructeurs AS Constructeurs, smaTailleEcran AS TailleEcran, smaAutonomie AS Autonomie, smaRAM as RAM, proNom AS NomProcesseur FROM t_valeur, t_smartphone INNER JOIN t_processeur ON t_smartphone.Idproc = t_processeur.idProcesseur WHERE t_valeur.idSmartphone = t_smartphone.idSmartphone AND t_valeur.valDate LIKE '2017-09-15';", connection);
             connection.Close();
             connection.Open();
             daa.Fill(ds, "t_smartphone, t_Processeur");
@@ -268,20 +247,20 @@ namespace P_GestProj2_Interface
             string request = "";
 
             if (cbMarque.Text != "")
-                request += "smaMarque LIKE '" + cbMarque.Text + "' AND ";
+                request += "Marque LIKE '" + cbMarque.Text + "' AND ";
             if (cbDate.Text != "")
-                request += "smaDate LIKE '%" + cbDate.Text + "%' AND";
+                request += "Date LIKE '%" + cbDate.Text + "%' AND";
             if (cbOS.Text != "")
-                request += "smaOS LIKE '" + cbOS.Text + "' AND ";
+                request += "OS LIKE '" + cbOS.Text + "' AND ";
             if (cbTailleEcran.Text != "")
-                request += "smaTailleEcran = " + Convert.ToSingle(cbTailleEcran.Text.Replace(" pouces", "")) + " AND ";
+                request += "TailleEcran = " + Convert.ToSingle(cbTailleEcran.Text.Replace(" pouces", "")) + " AND ";
             if (cbCPU.Text != "")
-                request += "proNom  = '" + cbCPU.Text + "' AND ";
+                request += "NomProcesseur  = '" + cbCPU.Text + "' AND ";
             if (cbRAM.Text != "")
-                request += "smaRAM LIKE '" + cbRAM.Text + "' AND ";
+                request += "RAM LIKE '" + cbRAM.Text + "' AND ";
             if (tbrPrixMax.Value != tmp1 || tbrPrixMin.Value != 0)
             { 
-                request += "valPrix < " + tbrPrixMax.Value + " AND valPrix > " + tbrPrixMin.Value + " AND ";
+                request += "Prix < " + tbrPrixMax.Value + " AND Prix > " + tbrPrixMin.Value + " AND ";
             }
 
 
@@ -291,7 +270,7 @@ namespace P_GestProj2_Interface
 
             DataView dv;
 
-            dv = new DataView(ds.Tables[0], request, "smaMarque Desc", DataViewRowState.CurrentRows);
+            dv = new DataView(ds.Tables[0], request, "Marque Desc", DataViewRowState.CurrentRows);
 
 
             dgvResultatSmartphones.DataSource = null;
@@ -349,13 +328,16 @@ namespace P_GestProj2_Interface
 
             connection.Close();
         }
-        
+
 
         /// <summary>
         /// Affiche un pop-up avec le texte voulu
         /// </summary>
         /// <param name="show">Texte à afficher</param>
         public void PopUp(string show)
+        {
+            MessageBox.Show(show, "", MessageBoxButtons.OK);
+        }
         /// <summary>
         /// Méthode activée quand un slider filtre de prix est changé. 
         /// S'assure que les sliders soient cohérents et éets à jour les chiffres à côtés de visualisation
