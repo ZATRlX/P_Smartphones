@@ -217,10 +217,7 @@ namespace P_GestProj2_Interface
 
             DataSet ds = new DataSet();
             //les "AS" sont là pour que les entêtes des colonnes dans le DataGridView soient bien-faits
-            string DataAdapterString = @"SELECT smaMarque AS Marque, smaModele AS Modele, valPrix AS Prix, smaDate AS Date," +
-                "smaOS AS OS, smaConstructeurs AS Constructeurs, smaTailleEcran AS TailleEcran, smaAutonomie AS Autonomie," +
-                "smaRAM as RAM, proNom AS NomProcesseur FROM t_valeur, t_smartphone INNER JOIN t_processeur" +
-                "ON t_smartphone.Idproc = t_processeur.idProcesseur WHERE t_valeur.idSmartphone = t_smartphone.idSmartphone AND t_valeur.valDate LIKE '2017-09-15';";
+            string DataAdapterString = @"SELECT smaMarque AS Marque, smaModele AS Modele, valPrix AS Prix, smaDate AS Date, smaOS AS OS, smaConstructeurs AS Constructeurs, smaTailleEcran AS TailleEcran, smaAutonomie AS Autonomie, smaRAM as RAM, proNom AS NomProcesseur FROM t_valeur, t_smartphone INNER JOIN t_processeur ON t_smartphone.Idproc = t_processeur.idProcesseur WHERE t_valeur.idSmartphone = t_smartphone.idSmartphone AND t_valeur.valDate LIKE '2017-09-15';";
             MySqlDataAdapter daa = new MySqlDataAdapter(DataAdapterString, connection);
             connection.Close();
             connection.Open();
