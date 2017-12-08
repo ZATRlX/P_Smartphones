@@ -1,3 +1,0 @@
-<?php
-echo "wesh alors"
-?>

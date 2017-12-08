@@ -63,6 +63,7 @@
             this.llblGregory = new System.Windows.Forms.LinkLabel();
             this.llblPierric = new System.Windows.Forms.LinkLabel();
             this.btnRequest = new System.Windows.Forms.Button();
+            this.btnNoFilter = new System.Windows.Forms.Button();
             this.grpFiltres.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbrPrixMax)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbrPrixMin)).BeginInit();
@@ -338,15 +339,23 @@
             this.pbTitle.TabIndex = 4;
             this.pbTitle.TabStop = false;
             // 
-            // btnRequest
+            // lblMin
             // 
-            this.btnRequest.Location = new System.Drawing.Point(822, 12);
-            this.btnRequest.Name = "btnRequest";
-            this.btnRequest.Size = new System.Drawing.Size(158, 23);
-            this.btnRequest.TabIndex = 5;
-            this.btnRequest.Text = "Requètes spéciales";
-            this.btnRequest.UseVisualStyleBackColor = true;
-            this.btnRequest.Click += new System.EventHandler(this.btnRequest_Click);
+            this.lblMin.AutoSize = true;
+            this.lblMin.Location = new System.Drawing.Point(987, 158);
+            this.lblMin.Name = "lblMin";
+            this.lblMin.Size = new System.Drawing.Size(13, 13);
+            this.lblMin.TabIndex = 5;
+            this.lblMin.Text = "0";
+            // 
+            // lblMax
+            // 
+            this.lblMax.AutoSize = true;
+            this.lblMax.Location = new System.Drawing.Point(987, 210);
+            this.lblMax.Name = "lblMax";
+            this.lblMax.Size = new System.Drawing.Size(13, 13);
+            this.lblMax.TabIndex = 6;
+            this.lblMax.Text = "0";
             // 
             // btnContact
             // 
@@ -470,23 +479,25 @@
             this.llblPierric.Text = "llblPierric";
             this.llblPierric.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Pierric_Click);
             // 
-            // lblMin
+            // btnRequest
             // 
-            this.lblMin.AutoSize = true;
-            this.lblMin.Location = new System.Drawing.Point(987, 158);
-            this.lblMin.Name = "lblMin";
-            this.lblMin.Size = new System.Drawing.Size(13, 13);
-            this.lblMin.TabIndex = 5;
-            this.lblMin.Text = "0";
+            this.btnRequest.Location = new System.Drawing.Point(822, 12);
+            this.btnRequest.Name = "btnRequest";
+            this.btnRequest.Size = new System.Drawing.Size(158, 23);
+            this.btnRequest.TabIndex = 5;
+            this.btnRequest.Text = "Requètes spéciales";
+            this.btnRequest.UseVisualStyleBackColor = true;
+            this.btnRequest.Click += new System.EventHandler(this.BtnRequest_Click);
             // 
-            // lblMax
+            // btnNoFilter
             // 
-            this.lblMax.AutoSize = true;
-            this.lblMax.Location = new System.Drawing.Point(987, 210);
-            this.lblMax.Name = "lblMax";
-            this.lblMax.Size = new System.Drawing.Size(13, 13);
-            this.lblMax.TabIndex = 6;
-            this.lblMax.Text = "0";
+            this.btnNoFilter.Location = new System.Drawing.Point(822, 78);
+            this.btnNoFilter.Name = "btnNoFilter";
+            this.btnNoFilter.Size = new System.Drawing.Size(158, 23);
+            this.btnNoFilter.TabIndex = 7;
+            this.btnNoFilter.Text = "Enlever tous les filtres";
+            this.btnNoFilter.UseVisualStyleBackColor = true;
+            this.btnNoFilter.Click += new System.EventHandler(this.BtnNoFilter_Click);
             // 
             // Form1
             // 
@@ -495,6 +506,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1045, 676);
+            this.Controls.Add(this.btnNoFilter);
             this.Controls.Add(this.btnRequest);
             this.Controls.Add(this.pnlContact);
             this.Controls.Add(this.btnContact);
@@ -558,6 +570,7 @@
         private System.Windows.Forms.LinkLabel llblLoic;
         private System.Windows.Forms.LinkLabel llblGregory;
         private System.Windows.Forms.LinkLabel llblPierric;
+        private System.Windows.Forms.Button btnNoFilter;
     }
 }
 

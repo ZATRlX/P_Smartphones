@@ -50,14 +50,6 @@ namespace P_GestProj2_Interface
         {
             InitializeComponent();
 
-            //crée la base de donnée accessible par l'utilisateur
-            //Process EasyPHP = Process.Start(@"EasyPHP-DevServer-14.1VC11-Portable\EasyPHP-DevServer-14.1VC11.exe");
-            //TODO(Résoudre le problème d'insertion par .sql)
-            //MySqlDataReader rdr2 = ExecuteQuery(@"DROP DATABASE IF EXISTS db_Smartphones;
-            //                                    CREATE DATABASE db_Smartphones CHARACTER SET utf8 COLLATE utf8_general_ci;
-            //                                    USE db_Smartphones;
-            //                                    db_smartphones < CSV\CreateDatabase.sql");
-
             //rajoute les composants de la fonction Contact au panel de cette même fonction
             pnlContact.Controls.Add(btnStopContact);
             pnlContact.Controls.Add(lblPierric);
@@ -256,7 +248,7 @@ namespace P_GestProj2_Interface
             if (cbCPU.Text != "")
                 request += "NomProcesseur  = '" + cbCPU.Text + "' AND ";
             if (cbRAM.Text != "")
-                request += "RAM LIKE '" + cbRAM.Text + "' AND ";
+                request += "RAM = " + cbRAM.Text + " AND ";
             if (tbrPrixMax.Value != tmp1 || tbrPrixMin.Value != 0)
             { 
                 request += " Prix < " + tbrPrixMax.Value + " AND Prix > " + tbrPrixMin.Value + " AND ";
@@ -323,7 +315,7 @@ namespace P_GestProj2_Interface
                 dgvResultatSmartphones[0, j].Value, dgvResultatSmartphones[1, j].Value, dgvResultatSmartphones[2, j].Value, dgvResultatSmartphones[3, j].Value, dgvResultatSmartphones[4, j].Value,
                 dgvResultatSmartphones[5, j].Value, dgvResultatSmartphones[6, j].Value, dgvResultatSmartphones[7, j].Value, dgvResultatSmartphones[8, j].Value);
 
-            //PopUp(show);
+            PopUp(show);
 
             connection.Close();
         }
@@ -364,7 +356,7 @@ namespace P_GestProj2_Interface
 
             ChangeFilters(new object(), new EventArgs());
         }
-        private void btnRequest_Click(object sender, EventArgs e)
+        private void BtnRequest_Click(object sender, EventArgs e)
         {
             Form2 formPopup = new Form2();
             formPopup.Show();
@@ -432,6 +424,23 @@ namespace P_GestProj2_Interface
         {
             pnlContact.Enabled = false;
             pnlContact.Visible = false;
+        }
+
+        /// <summary>
+        /// Remets les filtres à leurs valeurs de base
+        /// </summary>
+        /// <param name="sender">Objet envoyant la requête</param>
+        /// <param name="e">Evenement déclanchant cette méthode</param>
+        private void BtnNoFilter_Click(object sender, EventArgs e)
+        {
+            cbCPU.SelectedIndex = -1;
+            cbDate.SelectedIndex = -1;
+            cbMarque.SelectedIndex = -1;
+            cbOS.SelectedIndex = -1;
+            cbRAM.SelectedIndex = -1;
+            cbTailleEcran.SelectedIndex = -1;
+            tbrPrixMax.Value = tbrPrixMax.Maximum;
+            tbrPrixMin.Value = tbrPrixMin.Minimum;
         }
     }
 }

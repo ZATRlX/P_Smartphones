@@ -73,3 +73,4 @@ C:\Users\ripollpi\Desktop\gitP_Smartphones\P_Smartphones\P_GestProj2_Interface\b
 C:\Users\ripollpi\Desktop\gitP_Smartphones\P_Smartphones\P_GestProj2_Interface\bin\Debug\P_GestProj2_Interface.exe
 C:\Users\ripollpi\Desktop\gitP_Smartphones\P_Smartphones\P_GestProj2_Interface\bin\Debug\P_GestProj2_Interface.pdb
 C:\Users\ripollpi\Desktop\gitP_Smartphones\P_Smartphones\P_GestProj2_Interface\obj\Debug\P_GestProj2_Interface.Form2.resources
+C:\Users\briandgr\Desktop\P_Smartphones\P_GestProj2_Interface\obj\Debug\P_GestProj2_Interface.Form2.resources
