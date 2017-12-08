@@ -9,6 +9,9 @@ using System.Windows.Forms;
 using System.Data;
 using System.Diagnostics;
 
+
+
+
 namespace P_GestProj2_Interface
 {
     // ETML
@@ -42,6 +45,9 @@ namespace P_GestProj2_Interface
         /// <summary>
         /// Execution lors du lancement de la Form1
         /// </summary>
+
+        int tmp1;
+
         public Form1()
         {
             InitializeComponent();
@@ -72,13 +78,15 @@ namespace P_GestProj2_Interface
             llblLoic.Text = LOIC;
             llblGregory.Text = GREGORY;
 
-            //charger dans rdr3 La Requête sql qui est dans le string.
-            MySqlDataReader rdr3 = ExecuteQuery(@"SELECT smaMarque, smaModele, smaDate, smaOS, smaConstructeurs, smaTailleEcran, smaAutonomie, smaRAM, proNom FROM t_smartphone INNER JOIN t_processeur ON t_smartphone.Idproc = t_processeur.idProcesseur;");
             
             //créé les colonnes dans le DataGridView, avec leur noms
+            MySqlDataReader rdr3 = ExecuteQuery(@"SELECT smaMarque, smaModele, valPrix, smaDate, smaOS, smaConstructeurs, smaTailleEcran, smaAutonomie, smaRAM, proNom FROM t_valeur, t_smartphone INNER JOIN t_processeur ON t_smartphone.Idproc = t_processeur.idProcesseur WHERE t_valeur.idSmartphone = t_smartphone.idSmartphone AND t_valeur.valDate LIKE '2017-09-15';");
+
+            int i = 0;
             dgvResultatSmartphones.Columns.Add("colMarque", "Marque");
             dgvResultatSmartphones.Columns.Add("colModele", "Modele");
-            dgvResultatSmartphones.Columns.Add("colDate", "DateSortie");
+            dgvResultatSmartphones.Columns.Add("colPrix", "Prix");
+            dgvResultatSmartphones.Columns.Add("colDate", "Date de sortie");
             dgvResultatSmartphones.Columns.Add("colOS", "OS");
             dgvResultatSmartphones.Columns.Add("colConstructeurs", "Constructeurs");
             dgvResultatSmartphones.Columns.Add("colTailleEcran", "TailleEcran");
@@ -94,14 +102,14 @@ namespace P_GestProj2_Interface
                 dgvResultatSmartphones.Rows.Add();
                 dgvResultatSmartphones[0, i].Value = rdr3.GetString("smaMarque");
                 dgvResultatSmartphones[1, i].Value = rdr3.GetString("smaModele");
-                //fait en sorte de prendre juste le "2016" de "07-05-2016" 
-                dgvResultatSmartphones[2, i].Value = rdr3.GetString("smaDate").Substring(6, 4);
-                dgvResultatSmartphones[3, i].Value = rdr3.GetString("smaOS");
-                dgvResultatSmartphones[4, i].Value = rdr3.GetString("smaConstructeurs");
-                dgvResultatSmartphones[5, i].Value = rdr3.GetString("smaTailleEcran");
-                dgvResultatSmartphones[6, i].Value = rdr3.GetString("smaAutonomie");
-                dgvResultatSmartphones[7, i].Value = rdr3.GetString("smaRAM");
-                dgvResultatSmartphones[8, i].Value = rdr3.GetString("proNom");
+                dgvResultatSmartphones[2, i].Value = rdr3.GetString("valPrix");
+                dgvResultatSmartphones[3, i].Value = rdr3.GetString("smaDate").Substring(6, 4);
+                dgvResultatSmartphones[4, i].Value = rdr3.GetString("smaOS");
+                dgvResultatSmartphones[5, i].Value = rdr3.GetString("smaConstructeurs");
+                dgvResultatSmartphones[6, i].Value = rdr3.GetString("smaTailleEcran");
+                dgvResultatSmartphones[7, i].Value = rdr3.GetString("smaAutonomie");
+                dgvResultatSmartphones[8, i].Value = rdr3.GetString("smaRAM");
+                dgvResultatSmartphones[9, i].Value = rdr3.GetString("proNom");
                 i++;
             }
 
@@ -123,8 +131,38 @@ namespace P_GestProj2_Interface
                 cbMarque.Items.Add(rdrMarque.GetString("smaMarque"));
             }
 
-            //Filtres de la taille de l'écran
-            MySqlDataReader rdrTaille = ExecuteQuery(@"SELECT DISTINCT smaTailleEcran FROM t_smartphone ORDER BY smaTailleEcran;;");
+            MySqlDataReader rdrPrix = ExecuteQuery(@"SELECT DISTINCT MAX(valPrix) FROM t_valeur;");
+
+            while (rdrPrix.Read())
+            {
+
+                tmp1 = Int32.Parse(rdrPrix.GetString("max(valPrix)"));
+
+            }
+
+            #region Set trackbar default values
+            if (tmp1 / 100 > 0)
+            {
+                tbrPrixMax.TickFrequency = 50;
+                tbrPrixMin.TickFrequency = 50;
+            }
+            else
+            {
+                tbrPrixMax.TickFrequency = 10;
+                tbrPrixMin.TickFrequency = 10;
+            }
+
+            tbrPrixMax.Maximum = tmp1;
+            tbrPrixMin.Maximum = tmp1;
+
+
+            tbrPrixMax.Value = tmp1;
+
+            UpdateTrackBars();
+
+            #endregion
+
+            MySqlDataReader rdrTaille = ExecuteQuery(@"SELECT DISTINCT smaTailleEcran FROM t_smartphone ORDER BY smaTailleEcran;");
 
             while (rdrTaille.Read())
             {
@@ -166,6 +204,8 @@ namespace P_GestProj2_Interface
             p.Height = 125;
 
             p.Location = new System.Drawing.Point(10, 14);
+
+
         }
 
         /// <summary>
@@ -201,59 +241,68 @@ namespace P_GestProj2_Interface
         /// <param name="e">Evenement déclanchant cette méthode</param>
         public void ChangeFilters(object sender, EventArgs e)
         {
-            if (canChange)
-            {
-                //change la taille du Datagridview pour qu'il se redimensionne automatiquement
-                dgvResultatSmartphones.Height = 0;
-                if(dgvResultatSmartphones.AutoSize == false) { dgvResultatSmartphones.AutoSize = true; }
-                
-                ComboBox cb = sender as ComboBox;
-                
-                foreach (ComboBox cbs in p.Controls)
-                {
-                    canChange = false;
+            //if (canChange)
+            //{
 
-                    if (cb != cbs)
-                        cbs.SelectedIndex = -1;
-                    
-                }
-                
-                DataSet ds = new DataSet();
-                //Réécrit le Datagridview avec les informations filtrées
-                MySqlDataAdapter daa = new MySqlDataAdapter(@"SELECT smaMarque AS Marque, smaModele AS Modele, smaDate AS DateSortie, smaOS AS OS, smaConstructeurs AS Constructeur, smaTailleEcran AS TailleEcran, smaAutonomie AS Autonomie, smaRAM AS RAM, proNom AS Processeur FROM t_smartphone INNER JOIN t_processeur ON t_smartphone.Idproc = t_processeur.idProcesseur;", connection);
-                connection.Close();
-                connection.Open();
-                daa.Fill(ds, "t_smartphone, t_Processeur");
+            //    ComboBox cb = sender as ComboBox;
 
-                DataView dv;
-                
-                //remodèle certaines informations
-                if (cb.Name == "cbCPU")
-                {
-                    dv = new DataView(ds.Tables[0], "Processeur  = '" + cb.Text + "'", "Processeur Desc", DataViewRowState.CurrentRows);
-                }
-                else if(cb.Name == "cbDate")
-                {
-                    dv = new DataView(ds.Tables[0], "DateSortie LIKE '%" + cb.Text + "%'", "DateSortie Desc", DataViewRowState.CurrentRows);
-                }
-                else if(cb.Name == "cbTailleEcran")
-                {
-                    dv = new DataView(ds.Tables[0], "TailleEcran = " + Convert.ToSingle(cb.Text.Replace(" pouces", "")), "TailleEcran Desc", DataViewRowState.CurrentRows);
-                }
-                else
-                {
-                    dv = new DataView(ds.Tables[0], cb.Name.Substring(2) + " = '" + cb.Text + "'", cb.Name.Substring(2) + " Desc", DataViewRowState.CurrentRows);
-                }
-                
-                dgvResultatSmartphones.DataSource = null;
-                dgvResultatSmartphones.Rows.Clear();
-                dgvResultatSmartphones.Columns.Clear();
-                dgvResultatSmartphones.DataSource = dv;
-                
-                connection.Close();
+
+
+            //    foreach (ComboBox cbs in p.Controls)
+            //    {
+            //        canChange = false;
+
+            //        if (cb != cbs)
+            //            cbs.SelectedIndex = -1;
+
+            //    }
+
+
+            DataSet ds = new DataSet();
+            MySqlDataAdapter daa = new MySqlDataAdapter(@"SELECT smaMarque, smaModele, valPrix, smaDate, smaOS, smaConstructeurs, smaTailleEcran, smaAutonomie, smaRAM, proNom FROM t_valeur, t_smartphone INNER JOIN t_processeur ON t_smartphone.Idproc = t_processeur.idProcesseur WHERE t_valeur.idSmartphone = t_smartphone.idSmartphone AND t_valeur.valDate LIKE '2017-09-15';", connection);
+            connection.Close();
+            connection.Open();
+            daa.Fill(ds, "t_smartphone, t_Processeur");
+
+
+            string request = "";
+
+            if (cbMarque.Text != "")
+                request += "smaMarque LIKE '" + cbMarque.Text + "' AND ";
+            if (cbDate.Text != "")
+                request += "smaDate LIKE '%" + cbDate.Text + "%' AND";
+            if (cbOS.Text != "")
+                request += "smaOS LIKE '" + cbOS.Text + "' AND ";
+            if (cbTailleEcran.Text != "")
+                request += "smaTailleEcran = " + Convert.ToSingle(cbTailleEcran.Text.Replace(" pouces", "")) + " AND ";
+            if (cbCPU.Text != "")
+                request += "proNom  = '" + cbCPU.Text + "' AND ";
+            if (cbRAM.Text != "")
+                request += "smaRAM LIKE '" + cbRAM.Text + "' AND ";
+            if (tbrPrixMax.Value != tmp1 || tbrPrixMin.Value != 0)
+            { 
+                request += "valPrix < " + tbrPrixMax.Value + " AND valPrix > " + tbrPrixMin.Value + " AND ";
             }
 
-            canChange = true;
+
+            char[] MyChar = { 'A', 'N', 'D', ' ' };
+            request = request.TrimEnd(MyChar);
+
+
+            DataView dv;
+
+            dv = new DataView(ds.Tables[0], request, "smaMarque Desc", DataViewRowState.CurrentRows);
+
+
+            dgvResultatSmartphones.DataSource = null;
+            dgvResultatSmartphones.Rows.Clear();
+            dgvResultatSmartphones.Columns.Clear();
+            dgvResultatSmartphones.DataSource = dv;
+
+            connection.Close();
+
+
+
         }
 
         /// <summary>
@@ -296,18 +345,44 @@ namespace P_GestProj2_Interface
                 dgvResultatSmartphones[0, j].Value, dgvResultatSmartphones[1, j].Value, dgvResultatSmartphones[2, j].Value, dgvResultatSmartphones[3, j].Value, dgvResultatSmartphones[4, j].Value,
                 dgvResultatSmartphones[5, j].Value, dgvResultatSmartphones[6, j].Value, dgvResultatSmartphones[7, j].Value, dgvResultatSmartphones[8, j].Value);
 
-            PopUp(show);
+            //PopUp(show);
 
             connection.Close();
         }
+        
 
         /// <summary>
         /// Affiche un pop-up avec le texte voulu
         /// </summary>
         /// <param name="show">Texte à afficher</param>
         public void PopUp(string show)
+        /// <summary>
+        /// Méthode activée quand un slider filtre de prix est changé. 
+        /// S'assure que les sliders soient cohérents et éets à jour les chiffres à côtés de visualisation
+        /// </summary>
+        private void UpdateTrackBars(object sender = null, EventArgs e = null)
         {
-            MessageBox.Show(show, "", MessageBoxButtons.OK);
+
+            lblMin.Text = tbrPrixMin.Value.ToString();
+            lblMax.Text = tbrPrixMax.Value.ToString();
+
+            TrackBar trckbar = sender as TrackBar;
+
+            if (trckbar != null)
+            {
+                if (trckbar.Name == "tbrPrixMax")
+                {
+                    if (tbrPrixMax.Value < tbrPrixMin.Value)
+                        tbrPrixMax.Value = tbrPrixMin.Value;
+                }
+                if (trckbar.Name == "tbrPrixMin")
+                {
+                    if (tbrPrixMax.Value < tbrPrixMin.Value)
+                        tbrPrixMin.Value = tbrPrixMax.Value;
+                }
+            }
+
+            ChangeFilters(new object(), new EventArgs());
         }
 
         /// <summary>

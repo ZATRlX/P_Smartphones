@@ -31,6 +31,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.grpFiltres = new System.Windows.Forms.GroupBox();
+            this.lblPrixMax = new System.Windows.Forms.Label();
+            this.tbrPrixMax = new System.Windows.Forms.TrackBar();
+            this.lblPrixMin = new System.Windows.Forms.Label();
+            this.tbrPrixMin = new System.Windows.Forms.TrackBar();
             this.label2 = new System.Windows.Forms.Label();
             this.cbMarque = new System.Windows.Forms.ComboBox();
             this.lblRAM = new System.Windows.Forms.Label();
@@ -45,6 +49,8 @@
             this.lblOS = new System.Windows.Forms.Label();
             this.dgvResultatSmartphones = new System.Windows.Forms.DataGridView();
             this.pbTitle = new System.Windows.Forms.PictureBox();
+            this.lblMin = new System.Windows.Forms.Label();
+            this.lblMax = new System.Windows.Forms.Label();
             this.btnContact = new System.Windows.Forms.Button();
             this.pnlContact = new System.Windows.Forms.Panel();
             this.btnStopContact = new System.Windows.Forms.Button();
@@ -57,6 +63,8 @@
             this.llblGregory = new System.Windows.Forms.LinkLabel();
             this.llblPierric = new System.Windows.Forms.LinkLabel();
             this.grpFiltres.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tbrPrixMax)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbrPrixMin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultatSmartphones)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).BeginInit();
             this.pnlContact.SuspendLayout();
@@ -65,6 +73,10 @@
             // grpFiltres
             // 
             this.grpFiltres.BackColor = System.Drawing.Color.Transparent;
+            this.grpFiltres.Controls.Add(this.lblPrixMax);
+            this.grpFiltres.Controls.Add(this.tbrPrixMax);
+            this.grpFiltres.Controls.Add(this.lblPrixMin);
+            this.grpFiltres.Controls.Add(this.tbrPrixMin);
             this.grpFiltres.Controls.Add(this.label2);
             this.grpFiltres.Controls.Add(this.cbMarque);
             this.grpFiltres.Controls.Add(this.lblRAM);
@@ -78,12 +90,52 @@
             this.grpFiltres.Controls.Add(this.cbDate);
             this.grpFiltres.Controls.Add(this.lblOS);
             this.grpFiltres.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpFiltres.Location = new System.Drawing.Point(176, 101);
+            this.grpFiltres.Location = new System.Drawing.Point(60, 108);
             this.grpFiltres.Name = "grpFiltres";
-            this.grpFiltres.Size = new System.Drawing.Size(673, 151);
+            this.grpFiltres.Size = new System.Drawing.Size(920, 151);
             this.grpFiltres.TabIndex = 0;
             this.grpFiltres.TabStop = false;
             this.grpFiltres.Text = "Filtres";
+            // 
+            // lblPrixMax
+            // 
+            this.lblPrixMax.AutoSize = true;
+            this.lblPrixMax.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrixMax.Location = new System.Drawing.Point(669, 84);
+            this.lblPrixMax.Name = "lblPrixMax";
+            this.lblPrixMax.Size = new System.Drawing.Size(93, 15);
+            this.lblPrixMax.TabIndex = 18;
+            this.lblPrixMax.Text = "Prix maximum :";
+            // 
+            // tbrPrixMax
+            // 
+            this.tbrPrixMax.LargeChange = 50;
+            this.tbrPrixMax.Location = new System.Drawing.Point(672, 100);
+            this.tbrPrixMax.Name = "tbrPrixMax";
+            this.tbrPrixMax.Size = new System.Drawing.Size(227, 45);
+            this.tbrPrixMax.SmallChange = 10;
+            this.tbrPrixMax.TabIndex = 17;
+            this.tbrPrixMax.ValueChanged += new System.EventHandler(this.UpdateTrackBars);
+            // 
+            // lblPrixMin
+            // 
+            this.lblPrixMin.AutoSize = true;
+            this.lblPrixMin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrixMin.Location = new System.Drawing.Point(669, 25);
+            this.lblPrixMin.Name = "lblPrixMin";
+            this.lblPrixMin.Size = new System.Drawing.Size(90, 15);
+            this.lblPrixMin.TabIndex = 16;
+            this.lblPrixMin.Text = "Prix minimum :";
+            // 
+            // tbrPrixMin
+            // 
+            this.tbrPrixMin.LargeChange = 50;
+            this.tbrPrixMin.Location = new System.Drawing.Point(672, 41);
+            this.tbrPrixMin.Name = "tbrPrixMin";
+            this.tbrPrixMin.Size = new System.Drawing.Size(227, 45);
+            this.tbrPrixMin.SmallChange = 10;
+            this.tbrPrixMin.TabIndex = 15;
+            this.tbrPrixMin.ValueChanged += new System.EventHandler(this.UpdateTrackBars);
             // 
             // label2
             // 
@@ -407,6 +459,24 @@
             this.llblPierric.Text = "llblPierric";
             this.llblPierric.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Pierric_Click);
             // 
+            // lblMin
+            // 
+            this.lblMin.AutoSize = true;
+            this.lblMin.Location = new System.Drawing.Point(987, 158);
+            this.lblMin.Name = "lblMin";
+            this.lblMin.Size = new System.Drawing.Size(13, 13);
+            this.lblMin.TabIndex = 5;
+            this.lblMin.Text = "0";
+            // 
+            // lblMax
+            // 
+            this.lblMax.AutoSize = true;
+            this.lblMax.Location = new System.Drawing.Point(987, 210);
+            this.lblMax.Name = "lblMax";
+            this.lblMax.Size = new System.Drawing.Size(13, 13);
+            this.lblMax.TabIndex = 6;
+            this.lblMax.Text = "0";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -416,6 +486,8 @@
             this.ClientSize = new System.Drawing.Size(1045, 676);
             this.Controls.Add(this.pnlContact);
             this.Controls.Add(this.btnContact);
+            this.Controls.Add(this.lblMax);
+            this.Controls.Add(this.lblMin);
             this.Controls.Add(this.pbTitle);
             this.Controls.Add(this.dgvResultatSmartphones);
             this.Controls.Add(this.grpFiltres);
@@ -428,11 +500,14 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.grpFiltres.ResumeLayout(false);
             this.grpFiltres.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tbrPrixMax)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbrPrixMin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultatSmartphones)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).EndInit();
             this.pnlContact.ResumeLayout(false);
             this.pnlContact.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -453,6 +528,12 @@
         private System.Windows.Forms.DataGridView dgvResultatSmartphones;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pbTitle;
+        private System.Windows.Forms.Label lblPrixMax;
+        private System.Windows.Forms.TrackBar tbrPrixMax;
+        private System.Windows.Forms.Label lblPrixMin;
+        private System.Windows.Forms.TrackBar tbrPrixMin;
+        private System.Windows.Forms.Label lblMin;
+        private System.Windows.Forms.Label lblMax;
         private System.Windows.Forms.Button btnContact;
         private System.Windows.Forms.Panel pnlContact;
         private System.Windows.Forms.Button btnStopContact;

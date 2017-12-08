@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26730.12
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P_GestProj2_Interface", "P_GestProj2_Interface\P_GestProj2_Interface.csproj", "{62395F86-FA76-45E3-A631-1211085C7887}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P_GestProj2_Interface", "P_GestProj2_Interface.csproj", "{62395F86-FA76-45E3-A631-1211085C7887}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,6 +20,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {B459EF43-CCAD-4A4E-A7FA-DDA2B15E252F}
+		SolutionGuid = {C05A650D-7C88-4E96-9B1D-4E2E93FB48CF}
 	EndGlobalSection
 EndGlobal
