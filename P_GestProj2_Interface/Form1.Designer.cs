@@ -79,6 +79,8 @@
             this.grpFiltres.Controls.Add(this.tbrPrixMax);
             this.grpFiltres.Controls.Add(this.lblPrixMin);
             this.grpFiltres.Controls.Add(this.tbrPrixMin);
+            this.grpFiltres.Controls.Add(this.lblMin);
+            this.grpFiltres.Controls.Add(this.lblMax);
             this.grpFiltres.Controls.Add(this.label2);
             this.grpFiltres.Controls.Add(this.cbMarque);
             this.grpFiltres.Controls.Add(this.lblRAM);
@@ -92,9 +94,9 @@
             this.grpFiltres.Controls.Add(this.cbDate);
             this.grpFiltres.Controls.Add(this.lblOS);
             this.grpFiltres.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpFiltres.Location = new System.Drawing.Point(60, 108);
+            this.grpFiltres.Location = new System.Drawing.Point(39, 108);
             this.grpFiltres.Name = "grpFiltres";
-            this.grpFiltres.Size = new System.Drawing.Size(920, 151);
+            this.grpFiltres.Size = new System.Drawing.Size(961, 151);
             this.grpFiltres.TabIndex = 0;
             this.grpFiltres.TabStop = false;
             this.grpFiltres.Text = "Filtres";
@@ -342,18 +344,18 @@
             // lblMin
             // 
             this.lblMin.AutoSize = true;
-            this.lblMin.Location = new System.Drawing.Point(987, 158);
+            this.lblMin.Location = new System.Drawing.Point(905, 41);
             this.lblMin.Name = "lblMin";
-            this.lblMin.Size = new System.Drawing.Size(13, 13);
+            this.lblMin.Size = new System.Drawing.Size(20, 24);
             this.lblMin.TabIndex = 5;
             this.lblMin.Text = "0";
             // 
             // lblMax
             // 
             this.lblMax.AutoSize = true;
-            this.lblMax.Location = new System.Drawing.Point(987, 210);
+            this.lblMax.Location = new System.Drawing.Point(905, 102);
             this.lblMax.Name = "lblMax";
-            this.lblMax.Size = new System.Drawing.Size(13, 13);
+            this.lblMax.Size = new System.Drawing.Size(20, 24);
             this.lblMax.TabIndex = 6;
             this.lblMax.Text = "0";
             // 
@@ -510,8 +512,6 @@
             this.Controls.Add(this.btnRequest);
             this.Controls.Add(this.pnlContact);
             this.Controls.Add(this.btnContact);
-            this.Controls.Add(this.lblMax);
-            this.Controls.Add(this.lblMin);
             this.Controls.Add(this.pbTitle);
             this.Controls.Add(this.dgvResultatSmartphones);
             this.Controls.Add(this.grpFiltres);
@@ -531,7 +531,6 @@
             this.pnlContact.ResumeLayout(false);
             this.pnlContact.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
