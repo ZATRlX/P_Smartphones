@@ -316,6 +316,7 @@ namespace P_GestProj2_Interface
         {
             MessageBox.Show(show, "", MessageBoxButtons.OK);
         }
+        
         /// <summary>
         /// Méthode activée quand un slider filtre de prix est changé. 
         /// S'assure que les sliders soient cohérents et éets à jour les chiffres à côtés de visualisation
@@ -327,6 +328,7 @@ namespace P_GestProj2_Interface
 
             TrackBar trckbar = sender as TrackBar;
 
+            //fait en sorte que le curseur de trackbarPrixMin ne soit jamais plus haut que le cursuer de trackbarPrixMax
             if (trckbar != null)
             {
                 if (trckbar.Name == "tbrPrixMax")
@@ -343,6 +345,10 @@ namespace P_GestProj2_Interface
 
             ChangeFilters(new object(), new EventArgs());
         }
+
+        /// <summary>
+        /// Bouton pour afficher le pop-up des Requêtes
+        /// </summary>
         private void BtnRequest_Click(object sender, EventArgs e)
         {
             Form2 formPopup = new Form2();
@@ -355,7 +361,7 @@ namespace P_GestProj2_Interface
         /// Affiche le panel de contact lorsque le bouton contact est cliqué
         /// </summary>
         /// <param name="sender">Objet envoyant la requête</param>
-        /// <param name="e">Evenement déclanchant cette méthode</param>
+        /// <param name="e">Evenement déclenchant cette méthode</param>
         private void BtnContact_Click(object sender, EventArgs e)
         {
             pnlContact.Enabled = true;
