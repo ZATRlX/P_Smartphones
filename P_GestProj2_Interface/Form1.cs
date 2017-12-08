@@ -259,7 +259,7 @@ namespace P_GestProj2_Interface
                 request += "RAM LIKE '" + cbRAM.Text + "' AND ";
             if (tbrPrixMax.Value != tmp1 || tbrPrixMin.Value != 0)
             { 
-                request += "Prix < " + tbrPrixMax.Value + " AND Prix > " + tbrPrixMin.Value + " AND ";
+                request += " Prix < " + tbrPrixMax.Value + " AND Prix > " + tbrPrixMin.Value + " AND ";
             }
 
 
@@ -343,13 +343,6 @@ namespace P_GestProj2_Interface
         /// </summary>
         private void UpdateTrackBars(object sender = null, EventArgs e = null)
         {
-
-        private void btnRequest_Click(object sender, EventArgs e)
-        {
-            Form2 formPopup = new Form2();
-            formPopup.Show();
-            formPopup.Owner = this;
-        }
             lblMin.Text = tbrPrixMin.Value.ToString();
             lblMax.Text = tbrPrixMax.Value.ToString();
 
@@ -371,6 +364,13 @@ namespace P_GestProj2_Interface
 
             ChangeFilters(new object(), new EventArgs());
         }
+        private void btnRequest_Click(object sender, EventArgs e)
+        {
+            Form2 formPopup = new Form2();
+            formPopup.Show();
+            formPopup.Owner = this;
+        }
+            
 
         /// <summary>
         /// Affiche le panel de contact lorsque le bouton contact est cliqué
