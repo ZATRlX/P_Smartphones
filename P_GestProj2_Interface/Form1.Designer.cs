@@ -77,7 +77,9 @@
             this.grpFiltres.Controls.Add(this.lblPrixMax);
             this.grpFiltres.Controls.Add(this.tbrPrixMax);
             this.grpFiltres.Controls.Add(this.lblPrixMin);
+            this.grpFiltres.Controls.Add(this.lblMax);
             this.grpFiltres.Controls.Add(this.tbrPrixMin);
+            this.grpFiltres.Controls.Add(this.lblMin);
             this.grpFiltres.Controls.Add(this.label2);
             this.grpFiltres.Controls.Add(this.cbMarque);
             this.grpFiltres.Controls.Add(this.lblRAM);
@@ -91,9 +93,9 @@
             this.grpFiltres.Controls.Add(this.cbDate);
             this.grpFiltres.Controls.Add(this.lblOS);
             this.grpFiltres.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpFiltres.Location = new System.Drawing.Point(60, 108);
+            this.grpFiltres.Location = new System.Drawing.Point(49, 108);
             this.grpFiltres.Name = "grpFiltres";
-            this.grpFiltres.Size = new System.Drawing.Size(920, 151);
+            this.grpFiltres.Size = new System.Drawing.Size(950, 151);
             this.grpFiltres.TabIndex = 0;
             this.grpFiltres.TabStop = false;
             this.grpFiltres.Text = "Filtres";
@@ -338,15 +340,23 @@
             this.pbTitle.TabIndex = 4;
             this.pbTitle.TabStop = false;
             // 
-            // btnRequest
+            // lblMin
             // 
-            this.btnRequest.Location = new System.Drawing.Point(822, 12);
-            this.btnRequest.Name = "btnRequest";
-            this.btnRequest.Size = new System.Drawing.Size(158, 23);
-            this.btnRequest.TabIndex = 5;
-            this.btnRequest.Text = "Requètes spéciales";
-            this.btnRequest.UseVisualStyleBackColor = true;
-            this.btnRequest.Click += new System.EventHandler(this.btnRequest_Click);
+            this.lblMin.AutoSize = true;
+            this.lblMin.Location = new System.Drawing.Point(907, 45);
+            this.lblMin.Name = "lblMin";
+            this.lblMin.Size = new System.Drawing.Size(20, 24);
+            this.lblMin.TabIndex = 5;
+            this.lblMin.Text = "0";
+            // 
+            // lblMax
+            // 
+            this.lblMax.AutoSize = true;
+            this.lblMax.Location = new System.Drawing.Point(908, 105);
+            this.lblMax.Name = "lblMax";
+            this.lblMax.Size = new System.Drawing.Size(20, 24);
+            this.lblMax.TabIndex = 6;
+            this.lblMax.Text = "0";
             // 
             // btnContact
             // 
@@ -470,23 +480,15 @@
             this.llblPierric.Text = "llblPierric";
             this.llblPierric.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Pierric_Click);
             // 
-            // lblMin
+            // btnRequest
             // 
-            this.lblMin.AutoSize = true;
-            this.lblMin.Location = new System.Drawing.Point(987, 158);
-            this.lblMin.Name = "lblMin";
-            this.lblMin.Size = new System.Drawing.Size(13, 13);
-            this.lblMin.TabIndex = 5;
-            this.lblMin.Text = "0";
-            // 
-            // lblMax
-            // 
-            this.lblMax.AutoSize = true;
-            this.lblMax.Location = new System.Drawing.Point(987, 210);
-            this.lblMax.Name = "lblMax";
-            this.lblMax.Size = new System.Drawing.Size(13, 13);
-            this.lblMax.TabIndex = 6;
-            this.lblMax.Text = "0";
+            this.btnRequest.Location = new System.Drawing.Point(822, 12);
+            this.btnRequest.Name = "btnRequest";
+            this.btnRequest.Size = new System.Drawing.Size(158, 23);
+            this.btnRequest.TabIndex = 5;
+            this.btnRequest.Text = "Requètes spéciales";
+            this.btnRequest.UseVisualStyleBackColor = true;
+            this.btnRequest.Click += new System.EventHandler(this.btnRequest_Click);
             // 
             // Form1
             // 
@@ -498,8 +500,6 @@
             this.Controls.Add(this.btnRequest);
             this.Controls.Add(this.pnlContact);
             this.Controls.Add(this.btnContact);
-            this.Controls.Add(this.lblMax);
-            this.Controls.Add(this.lblMin);
             this.Controls.Add(this.pbTitle);
             this.Controls.Add(this.dgvResultatSmartphones);
             this.Controls.Add(this.grpFiltres);
@@ -519,7 +519,6 @@
             this.pnlContact.ResumeLayout(false);
             this.pnlContact.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

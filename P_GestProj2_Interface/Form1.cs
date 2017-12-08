@@ -38,14 +38,11 @@ namespace P_GestProj2_Interface
         const string GREGORY = "https://github.com/Imacutekayx";
         
         DataView dv = new DataView();
-        Panel p = new Panel();
         
+        int tmp1;
         /// <summary>
         /// Execution lors du lancement de la Form1
         /// </summary>
-
-        int tmp1;
-
         public Form1()
         {
             InitializeComponent();
@@ -184,21 +181,6 @@ namespace P_GestProj2_Interface
             cbDate.Items.Add("2015");
             cbDate.Items.Add("2016");
             cbDate.Items.Add("2017");
-            
-            //Ajout des comboboxes dans la panel et modification de celui-ci
-            p.Controls.Add(cbCPU);
-            p.Controls.Add(cbTailleEcran);
-            p.Controls.Add(cbRAM);
-            p.Controls.Add(cbOS);
-            p.Controls.Add(cbMarque);
-            p.Controls.Add(cbDate);
-
-            grpFiltres.Controls.Add(p);
-
-            p.Width = 660;
-            p.Height = 125;
-
-            p.Location = new System.Drawing.Point(10, 14);
 
 
         }
