@@ -99,7 +99,9 @@ namespace P_GestProj2_Interface
 
             connection.Close();
 
-            //Filtre des OS
+            #region Remplisage des valeurs possibles dans les combobox de filtres
+
+            //Ajoute tous les OS possibles dans le combobox de filtre "OS"
             MySqlDataReader rdrOS = ExecuteQuery(@"SELECT DISTINCT smaOS FROM t_smartphone ORDER BY smaOS;");
 
             while (rdrOS.Read())
@@ -107,7 +109,7 @@ namespace P_GestProj2_Interface
                 cbOS.Items.Add(rdrOS.GetString("smaOS"));
             }
 
-            //Filtre des marques
+            //Remplissage du combobox "Marque"
             MySqlDataReader rdrMarque = ExecuteQuery(@"SELECT DISTINCT smaMarque FROM t_smartphone ORDER BY smaMarque;");
 
             while (rdrMarque.Read())
@@ -115,6 +117,7 @@ namespace P_GestProj2_Interface
                 cbMarque.Items.Add(rdrMarque.GetString("smaMarque"));
             }
 
+            //Ajout des valeurs dans les trackbar de filtre de Prix
             MySqlDataReader rdrPrix = ExecuteQuery(@"SELECT DISTINCT MAX(valPrix) FROM t_valeur;");
 
             while (rdrPrix.Read())
@@ -123,8 +126,7 @@ namespace P_GestProj2_Interface
                 tmp1 = Int32.Parse(rdrPrix.GetString("max(valPrix)"));
 
             }
-
-            #region Set trackbar default values
+            
             if (tmp1 / 100 > 0)
             {
                 tbrPrixMax.TickFrequency = 50;
@@ -144,8 +146,8 @@ namespace P_GestProj2_Interface
 
             UpdateTrackBars();
 
-            #endregion
 
+            //Remplissage du combobox "Taille"
             MySqlDataReader rdrTaille = ExecuteQuery(@"SELECT DISTINCT smaTailleEcran FROM t_smartphone ORDER BY smaTailleEcran;");
 
             while (rdrTaille.Read())
@@ -153,7 +155,7 @@ namespace P_GestProj2_Interface
                 cbTailleEcran.Items.Add(rdrTaille.GetString("smaTailleEcran") + " pouces");
             }
 
-            //Filtre de la RAM
+            //Remplissage du combobox "RAM"
             MySqlDataReader rdrRAM = ExecuteQuery(@"SELECT DISTINCT smaRAM FROM t_smartphone ORDER BY smaRAM;");
 
             while (rdrRAM.Read())
@@ -161,7 +163,7 @@ namespace P_GestProj2_Interface
                 cbRAM.Items.Add(rdrRAM.GetString("smaRAM"));
             }
 
-            //Filtre du processeur
+            //Remplissage du combobox "Processeur"
             MySqlDataReader rdrCPU = ExecuteQuery(@"SELECT DISTINCT proNom FROM t_processeur ORDER BY proPerformances;");
 
             while (rdrCPU.Read())
@@ -169,11 +171,13 @@ namespace P_GestProj2_Interface
                 cbCPU.Items.Add(rdrCPU.GetString("proNom"));
             }
 
-            //Ajout des dates manuellement
+            //Ajout des dates manuellement dans le combobox de Date de sortie
             cbDate.Items.Add("2015");
             cbDate.Items.Add("2016");
             cbDate.Items.Add("2017");
 
+
+            #endregion
 
         }
 
@@ -204,19 +208,26 @@ namespace P_GestProj2_Interface
         }
 
         /// <summary>
-        /// Change les filtres
+        /// Applique les filtres selectionnés avec les comboboxs dans le datagridview. Executé à chaque fois qu'un combobox est modifié
         /// </summary>
         /// <param name="sender">Objet envoyant la requête</param>
         /// <param name="e">Evenement déclanchant cette méthode</param>
         public void ChangeFilters(object sender, EventArgs e)
         {
+
             DataSet ds = new DataSet();
-            MySqlDataAdapter daa = new MySqlDataAdapter(@"SELECT smaMarque AS Marque, smaModele AS Modele, valPrix AS Prix, smaDate AS Date, smaOS AS OS, smaConstructeurs AS Constructeurs, smaTailleEcran AS TailleEcran, smaAutonomie AS Autonomie, smaRAM as RAM, proNom AS NomProcesseur FROM t_valeur, t_smartphone INNER JOIN t_processeur ON t_smartphone.Idproc = t_processeur.idProcesseur WHERE t_valeur.idSmartphone = t_smartphone.idSmartphone AND t_valeur.valDate LIKE '2017-09-15';", connection);
+            //les "AS" sont là pour que les entêtes des colonnes dans le DataGridView soient bien-faits
+            string DataAdapterString = @"SELECT smaMarque AS Marque, smaModele AS Modele, valPrix AS Prix, smaDate AS Date," +
+                "smaOS AS OS, smaConstructeurs AS Constructeurs, smaTailleEcran AS TailleEcran, smaAutonomie AS Autonomie," +
+                "smaRAM as RAM, proNom AS NomProcesseur FROM t_valeur, t_smartphone INNER JOIN t_processeur" +
+                "ON t_smartphone.Idproc = t_processeur.idProcesseur WHERE t_valeur.idSmartphone = t_smartphone.idSmartphone AND t_valeur.valDate LIKE '2017-09-15';";
+            MySqlDataAdapter daa = new MySqlDataAdapter(DataAdapterString, connection);
             connection.Close();
             connection.Open();
             daa.Fill(ds, "t_smartphone, t_Processeur");
 
 
+            //Constitue un string de requête en fonction des filtres selectionnés
             string request = "";
 
             if (cbMarque.Text != "")
@@ -236,25 +247,22 @@ namespace P_GestProj2_Interface
                 request += " Prix < " + tbrPrixMax.Value + " AND Prix > " + tbrPrixMin.Value + " AND ";
             }
 
-
+            //enlève le dernier des "AND " qui est dans le string request 
             char[] MyChar = { 'A', 'N', 'D', ' ' };
             request = request.TrimEnd(MyChar);
 
-
+            //créé un DataView avec le string request comme filtre.
             DataView dv;
-
             dv = new DataView(ds.Tables[0], request, "Marque Desc", DataViewRowState.CurrentRows);
 
-
+            //puis défini le Dataview comme source de données du DataGridView.
             dgvResultatSmartphones.DataSource = null;
             dgvResultatSmartphones.Rows.Clear();
             dgvResultatSmartphones.Columns.Clear();
             dgvResultatSmartphones.DataSource = dv;
 
             connection.Close();
-
-
-
+            
         }
 
         /// <summary>
