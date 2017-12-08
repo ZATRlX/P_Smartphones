@@ -119,7 +119,7 @@ namespace P_GestProj2_Interface
             }
 
             //Filtre des marques
-            MySqlDataReader rdrMarque = ExecuteQuery(@"SELECT DISTINCT smaMarque FROM t_smartphone ORDER BY smaMarque;;");
+            MySqlDataReader rdrMarque = ExecuteQuery(@"SELECT DISTINCT smaMarque FROM t_smartphone ORDER BY smaMarque;");
 
             while (rdrMarque.Read())
             {
