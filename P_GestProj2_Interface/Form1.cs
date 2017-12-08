@@ -98,14 +98,13 @@ namespace P_GestProj2_Interface
                 dgvResultatSmartphones.Rows.Add();
                 dgvResultatSmartphones[0, i].Value = rdr3.GetString("smaMarque");
                 dgvResultatSmartphones[1, i].Value = rdr3.GetString("smaModele");
-                dgvResultatSmartphones[2, i].Value = rdr3.GetString("valPrix");
-                dgvResultatSmartphones[3, i].Value = rdr3.GetString("smaDate").Substring(6, 4);
-                dgvResultatSmartphones[4, i].Value = rdr3.GetString("smaOS");
-                dgvResultatSmartphones[5, i].Value = rdr3.GetString("smaConstructeurs");
-                dgvResultatSmartphones[6, i].Value = rdr3.GetString("smaTailleEcran");
-                dgvResultatSmartphones[7, i].Value = rdr3.GetString("smaAutonomie");
-                dgvResultatSmartphones[8, i].Value = rdr3.GetString("smaRAM");
-                dgvResultatSmartphones[9, i].Value = rdr3.GetString("proNom");
+                dgvResultatSmartphones[2, i].Value = rdr3.GetString("smaDate").Substring(6, 4);
+                dgvResultatSmartphones[3, i].Value = rdr3.GetString("smaOS");
+                dgvResultatSmartphones[4, i].Value = rdr3.GetString("smaConstructeurs");
+                dgvResultatSmartphones[5, i].Value = rdr3.GetString("smaTailleEcran");
+                dgvResultatSmartphones[6, i].Value = String.Format("{0:00}",Convert.ToInt32(rdr3.GetString("smaAutonomie")));
+                dgvResultatSmartphones[7, i].Value = rdr3.GetString("smaRAM");
+                dgvResultatSmartphones[8, i].Value = rdr3.GetString("proNom");
                 i++;
             }
 
@@ -345,6 +344,12 @@ namespace P_GestProj2_Interface
         private void UpdateTrackBars(object sender = null, EventArgs e = null)
         {
 
+        private void btnRequest_Click(object sender, EventArgs e)
+        {
+            Form2 formPopup = new Form2();
+            formPopup.Show();
+            formPopup.Owner = this;
+        }
             lblMin.Text = tbrPrixMin.Value.ToString();
             lblMax.Text = tbrPrixMax.Value.ToString();
 

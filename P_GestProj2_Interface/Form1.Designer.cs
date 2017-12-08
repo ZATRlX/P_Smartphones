@@ -62,6 +62,7 @@
             this.llblLoic = new System.Windows.Forms.LinkLabel();
             this.llblGregory = new System.Windows.Forms.LinkLabel();
             this.llblPierric = new System.Windows.Forms.LinkLabel();
+            this.btnRequest = new System.Windows.Forms.Button();
             this.grpFiltres.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbrPrixMax)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbrPrixMin)).BeginInit();
@@ -337,6 +338,16 @@
             this.pbTitle.TabIndex = 4;
             this.pbTitle.TabStop = false;
             // 
+            // btnRequest
+            // 
+            this.btnRequest.Location = new System.Drawing.Point(822, 12);
+            this.btnRequest.Name = "btnRequest";
+            this.btnRequest.Size = new System.Drawing.Size(158, 23);
+            this.btnRequest.TabIndex = 5;
+            this.btnRequest.Text = "Requètes spéciales";
+            this.btnRequest.UseVisualStyleBackColor = true;
+            this.btnRequest.Click += new System.EventHandler(this.btnRequest_Click);
+            // 
             // btnContact
             // 
             this.btnContact.Location = new System.Drawing.Point(13, 13);
@@ -484,6 +495,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1045, 676);
+            this.Controls.Add(this.btnRequest);
             this.Controls.Add(this.pnlContact);
             this.Controls.Add(this.btnContact);
             this.Controls.Add(this.lblMax);
@@ -525,9 +537,10 @@
         private System.Windows.Forms.Label lblCPU;
         private System.Windows.Forms.ComboBox cbDate;
         private System.Windows.Forms.Label lblAnnee;
-        private System.Windows.Forms.DataGridView dgvResultatSmartphones;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pbTitle;
+        private System.Windows.Forms.Button btnRequest;
+        public System.Windows.Forms.DataGridView dgvResultatSmartphones;
         private System.Windows.Forms.Label lblPrixMax;
         private System.Windows.Forms.TrackBar tbrPrixMax;
         private System.Windows.Forms.Label lblPrixMin;
